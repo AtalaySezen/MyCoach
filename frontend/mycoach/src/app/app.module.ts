@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,10 +13,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoadingComponent } from './shared/loading/loading.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatMenu, MatMenuModule} from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import {MatMenu, MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
@@ -43,5 +47,6 @@ import {MatMenu, MatMenuModule} from '@angular/material/menu';
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

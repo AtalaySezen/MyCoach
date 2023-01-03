@@ -1,6 +1,26 @@
 {
-    "users": [
-        {}
-    ],
-    "coachs": []
+  "users": [
+    {
+      "id": 1,
+      "username": "test",
+      "surname": "test2",
+      "password": "1234",
+      "email": "test@.com"
+    },
+    {
+      "id": 2,
+      "username": "atalay",
+      "surname": "sezen",
+      "password": "atalay9696",
+      "email": "atalaysezen@yahoo.com.tr"
+    },
+    {
+      "id": 3,
+      "username": "atalay",
+      "surname": "test",
+      "password": "asdada",
+      "email": "test@montent.com"
+    }
+  ],
+  "coachs": []
 }
