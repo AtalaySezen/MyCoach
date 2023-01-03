@@ -1,0 +1,23 @@
+<header class="header">
+    <nav>
+        <a href="./index.html" class="logo text-white">MyCoach</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu md:flex items-start sm:items-center ">
+            <li><a routerLink="">Anasayfa</a></li>
+            <li><a>Koçlarınız</a></li>
+            <li><a>lorem</a></li>
+            <li><a>Hakkımızda</a></li>
+            <li><a routerLink="contact">İletişim</a></li>
+            <li>
+                <button class="mat-button mx-2" mat-raised-button color="warn" routerLink="register">Kayıt Ol</button>
+                <button class="mat-button bg-white" routerLink="login" mat-raised-button >Giriş Yap</button>
+            </li>
+            <button class="" mat-button [matMenuTriggerFor]="menu" color="warn">Dil</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>TR</button>
+                <button mat-menu-item>EN</button>
+            </mat-menu>
+        </ul>
+    </nav>
+</header>
