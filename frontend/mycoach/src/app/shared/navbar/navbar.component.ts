@@ -10,9 +10,7 @@ export class NavbarComponent {
 
   userLogged: boolean = false
 
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.checkUserLogged();
@@ -26,6 +24,7 @@ export class NavbarComponent {
 
   logOut() {
     localStorage.clear();
+    this.userLogged == false;
     this.router.navigate(['']);
   }
 

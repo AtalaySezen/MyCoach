@@ -32,10 +32,8 @@ export class LoginComponent {
   loginUser() {
     this.http.get<any>("http://localhost:3000/users")
       .subscribe(res => {
-        console.log(res);
         const user = res.find((a: any) => {
-          console.log(a.password, a.frame)
-          return a.frame === this.loginForm.value.frame && a.password == this.loginForm.value.password
+          return a.email === this.loginForm.value.email && a.password == this.loginForm.value.password
         });
 
         if (user) {
@@ -54,7 +52,7 @@ export class LoginComponent {
         console.log("hata var");
       })
 
-      
+
 
 
 

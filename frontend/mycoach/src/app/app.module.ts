@@ -23,6 +23,13 @@ import { RegistercoachComponent } from './components/registercoach/registercoach
 import {MatSelectModule} from '@angular/material/select';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { TrainingprogramsComponent } from './components/trainingprograms/trainingprograms.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditDialogComponent } from './components/profile/profilecomponents/edit-dialog/edit-dialog.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -36,7 +43,9 @@ import { CoachsComponent } from './components/coachs/coachs.component';
     LoadingComponent,
     RegistercoachComponent,
     ProfileComponent,
-    CoachsComponent
+    CoachsComponent,
+    TrainingprogramsComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,11 +55,17 @@ import { CoachsComponent } from './components/coachs/coachs.component';
     MatInputModule,
     MatMenuModule,
     HttpClientModule,
+    MatTabsModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatSlideToggleModule,
     MatPaginatorModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
     MatButtonModule,
+    MatButtonToggleModule,
     BrowserAnimationsModule
   ],
   providers: [],

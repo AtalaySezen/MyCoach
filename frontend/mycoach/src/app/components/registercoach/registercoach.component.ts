@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-interface Car {
+interface Age {
   value: string;
   viewValue: string;
-
 }
 
 @Component({
@@ -23,12 +22,13 @@ export class RegistercoachComponent {
   idCount: Array<any>;
   id: number;
 
-  cars: Car[] = [
+  ages: Age[] = [
     { value: '1-3', viewValue: '1-3' },
     { value: '3-6', viewValue: '3-6' },
     { value: '6+', viewValue: '6+' },
   ];
-  selectedCar = this.cars[0].value;
+
+  selectedCar = this.ages[0].value;
   constructor(private http: HttpClient) {
     {
       this.registerForm = new FormGroup({

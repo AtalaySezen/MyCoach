@@ -9,18 +9,10 @@
       "statusUser": 1,
       "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
       "age": 0,
-      "city": "Hangi Şehirde Yaşıyorsun?"
-    },
-    {
-      "id": 2,
-      "username": "Atalay",
-      "surname": "Sezen",
-      "password": "atalay9696",
-      "email": "atalaysezen@yahoo.com.tr",
-      "statusUser": 1,
-      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-      "age": 0,
-      "city": "Hangi Şehirde Yaşıyorsun?"
+      "city": "Hangi Şehirde Yaşıyorsun?",
+      "textUser": "Kendini Tanıtman için bir alan.",
+      "mobil": 0,
+      "userInterests": "myCoach"
     }
   ],
   "coachs": [

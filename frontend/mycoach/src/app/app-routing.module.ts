@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistercoachComponent } from './components/registercoach/registercoach.component';
+import { TrainingprogramsComponent } from './components/trainingprograms/trainingprograms.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
     path: 'coachs',
     component: CoachsComponent,
     title: 'Koçlarımız'
+  },
+  {
+    path:'programs',
+    component:TrainingprogramsComponent,
+    title:'Programlarım'
   }
 
 
