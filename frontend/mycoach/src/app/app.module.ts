@@ -19,6 +19,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistercoachComponent } from './components/registercoach/registercoach.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CoachsComponent } from './components/coachs/coachs.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +33,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     ContactComponent,
-    LoadingComponent
+    LoadingComponent,
+    RegistercoachComponent,
+    ProfileComponent,
+    CoachsComponent
   ],
   imports: [
     BrowserModule,
     MatIconModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,

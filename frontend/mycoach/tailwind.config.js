@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'home': "url('https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-        'register':"url('./assets/images/background/register2.jpg')"
+        'home': "url('./assets/images/background/home-bg (1).jpg')",
+        'register':"url('./assets/images/background/login-bg.jpg')"
       }
     },
   },

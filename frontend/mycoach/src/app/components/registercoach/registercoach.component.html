@@ -1,21 +1,17 @@
-<div class="w-full sm:flex md:flex justify-center items-center h-full my-0">
+<div class="w-full flex justify-center items-center h-full my-0">
     <app-loading class="mx-auto absolute" *ngIf="loading"></app-loading>
 
-    <div class="sm:w-3/6 w-full flex justify-center items-center h-full">
+    <div class="w-3/6 flex justify-center items-center h-full">
         <div class="flex-col">
 
             <div class="flex-col mx-auto header text-center pb-10 w-3/4">
                 <h1 class="text-3xl font-bold">MyCoach</h1>
-                <h2 class="text-xl mt-2 font-semibold">Antreman, Sağlıklı Beslenme & Daha İyi Bir Yaşam İçin Bize
-                    Katılın</h2>
-                <mat-label routerLink="/registercoach" class="mt-5 cursor-pointer">Eğitmen misiniz?
-                    <br>
-                    <span class="font-bold underline hover cursor-pointer">Kayıt Olun</span></mat-label>
+                <h2 class="text-xl mt-2 font-semibold">Koç Kayıt Olma</h2>
             </div>
             <form [formGroup]="registerForm" class="flex-col items-center justify-center w-full">
 
                 <div>
-                    <mat-form-field class="w-full" appearance="fill">
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
                         <mat-label>Adınız</mat-label>
                         <input matInput #input placeholder="Adınız" formControlName="username">
                         <mat-error *ngIf="registerForm.hasError('username') || !registerForm.hasError('required')">
@@ -25,7 +21,7 @@
                 </div>
 
                 <div>
-                    <mat-form-field class="w-full" appearance="fill">
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
                         <mat-label>Soyadınız</mat-label>
                         <input matInput #input formControlName="surname" placeholder="Soyadınız">
                         <mat-error *ngIf="registerForm.hasError('surname') || !registerForm.hasError('required')">
@@ -35,7 +31,7 @@
                 </div>
 
                 <div>
-                    <mat-form-field class="w-full" appearance="fill">
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
                         <mat-label>E-Posta Adresiniz</mat-label>
                         <input matInput #input formControlName="email" placeholder="örnek@gmail.com">
                         <mat-error *ngIf="registerForm.hasError('email') || !registerForm.hasError('required')">
@@ -46,7 +42,7 @@
 
                 </div>
                 <div>
-                    <mat-form-field class="w-full" appearance="fill">
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
                         <mat-label>Şifrenizi Girin</mat-label>
                         <div class="flex items-center justify-center relative">
                             <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
@@ -60,8 +56,9 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+
                 <div>
-                    <mat-form-field class="w-full" appearance="fill">
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
                         <mat-label>Şifrenizi Tekrar Girin</mat-label>
                         <div class="flex items-center justify-center relative">
                             <input matInput [type]="hide ? 'password' : 'text'">
@@ -71,6 +68,18 @@
                         </div>
                     </mat-form-field>
                 </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Kaç Yıllık Tecrübelisiniz?</mat-label>
+                        <select matNativeControl (change)="selectCar($event)" formControlName="selected">
+                            <option value=""></option>
+                            <option *ngFor="let option of cars"  [value]="option.value"
+                                [selected]="selectedCar === option.value">{{ option.viewValue }}</option>
+                        </select>
+                    </mat-form-field>
+                    <p>You selected: {{selectedCar}}</p>
+                </div>
+
                 <div class="flex items-center flex-col">
                     <button class="w-full mat-height " mat-raised-button color="warn" (click)="saveUser()"
                         [disabled]="registerForm.invalid">Kayıt
@@ -88,7 +97,7 @@
     </div>
 
 
-    <div class="sm:w-3/6 w-full bg-register bg-no-repeat bg-cover bg-center  h-full">
+    <div class="w-3/6 bg-register bg-no-repeat bg-cover bg-center  h-full">
     </div>
 
 </div>

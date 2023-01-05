@@ -2,25 +2,45 @@
   "users": [
     {
       "id": 1,
-      "username": "test",
-      "surname": "test2",
-      "password": "1234",
-      "email": "test@.com"
+      "username": "Atalay",
+      "surname": "Sezen",
+      "password": "atalay9696",
+      "email": "atalaysezen@yahoo.com.tr",
+      "statusUser": 1,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": 0,
+      "city": "Hangi Şehirde Yaşıyorsun?"
+    },
+    {
+      "id": 2,
+      "username": "Atalay",
+      "surname": "Sezen",
+      "password": "atalay9696",
+      "email": "atalaysezen@yahoo.com.tr",
+      "statusUser": 1,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": 0,
+      "city": "Hangi Şehirde Yaşıyorsun?"
+    }
+  ],
+  "coachs": [
+    {
+      "id": 1,
+      "username": "atalay",
+      "surname": "koç",
+      "password": "atalay9696",
+      "experienceCoach": "3-6",
+      "email": "atalay@example.com",
+      "statusUser": 2
     },
     {
       "id": 2,
       "username": "atalay",
-      "surname": "sezen",
+      "surname": "koç",
       "password": "atalay9696",
-      "email": "atalaysezen@yahoo.com.tr"
-    },
-    {
-      "id": 3,
-      "username": "atalay",
-      "surname": "test",
-      "password": "asdada",
-      "email": "test@montent.com"
+      "experienceCoach": "3-6",
+      "email": "atalay@example.com",
+      "statusUser": 2
     }
-  ],
-  "coachs": []
+  ]
 }

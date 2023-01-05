@@ -5,13 +5,20 @@
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu md:flex items-start sm:items-center ">
             <li><a routerLink="">Anasayfa</a></li>
-            <li><a>Koçlarınız</a></li>
+            <li><a routerLink="/coachs">Koçlarımız</a></li>
             <li><a>lorem</a></li>
             <li><a>Hakkımızda</a></li>
-            <li><a routerLink="contact">İletişim</a></li>
+            <li><a routerLink="/contact">İletişim</a></li>
             <li>
-                <button class="mat-button mx-2" mat-raised-button color="warn" routerLink="register">Kayıt Ol</button>
-                <button class="mat-button bg-white" routerLink="login" mat-raised-button >Giriş Yap</button>
+                <button class="mat-button mx-2" mat-raised-button color="accent" routerLink="/profile"
+                    *ngIf="userLogged">Profil</button>
+                <button class="mat-button mx-2" mat-raised-button color="warn" *ngIf="userLogged"
+                    (click)="logOut()">Çıkış Yap</button>
+
+                <button class="mat-button mx-2" mat-raised-button color="accent" routerLink="/register"
+                    *ngIf="!userLogged">Kayıt Ol</button>
+                <button class="mat-button bg-white" routerLink="/login" mat-raised-button *ngIf="!userLogged">Giriş
+                    Yap</button>
             </li>
             <button class="" mat-button [matMenuTriggerFor]="menu" color="warn">Dil</button>
             <mat-menu #menu="matMenu">

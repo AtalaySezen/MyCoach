@@ -1,0 +1,7 @@
+<app-navbar></app-navbar>
+<div *ngIf="profilePage">
+    <img class="w-20" [src]="image" alt="">
+    <p>Profiline Hoşgeldin {{username}} {{surname}} profil</p>
+
+</div>
+<p *ngIf="coachPage">Profiline Hoşgeldin {{username}} {{surname}} koç</p>
