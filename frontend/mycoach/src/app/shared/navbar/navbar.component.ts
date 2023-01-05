@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  userLogged: boolean = false
+  userLogged: boolean = false;
 
   constructor(private router: Router) { }
 

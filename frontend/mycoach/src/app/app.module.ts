@@ -45,7 +45,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     ProfileComponent,
     CoachsComponent,
     TrainingprogramsComponent,
-    EditDialogComponent
+    EditDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EditDialogComponent } from './profilecomponents/edit-dialog/edit-dialog.component';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -27,7 +28,7 @@ export class ProfileComponent {
   hideMyData: boolean = false;
   autoActive: String = "Aktif Et";
   checkActive: FormGroup
-
+  bgColor: string = 'bg-slate-400';
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
@@ -40,7 +41,10 @@ export class ProfileComponent {
 
   ngOnInit() {
     this.getUserInfos();
+    this.checkBg();
+
   }
+
 
   getUserInfos() {
     //service'e ayrılacak
@@ -64,18 +68,16 @@ export class ProfileComponent {
       this.coachPage = true;
       this.profilePage = false;
     }
-    console.log(this.coachPage)
-    console.log(this.profilePage);
   }
 
 
   editText(text: string) {
     const dialogRef = this.dialog.open(EditDialogComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
+
 
   changeEmail() {
     if (confirm("Press a button!") == true) {
@@ -112,8 +114,37 @@ export class ProfileComponent {
     }
   }
 
+  /*Profil Ayarları Diyalog */
+  openEdit(templateRef: any) {
+    const dialogRef = this.dialog.open(templateRef, {
+      width: '100%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.checkBg();
+    });
+  }
+
+  closeEdit() {
+    this.dialog.closeAll();
+  }
 
 
+  changeBg() {
+    this.bgColor = 'bg-red-300'
+  }
+
+  saveBg() {
+    localStorage.setItem('bgProfile', this.bgColor);
+    this.closeEdit();
+  }
+
+
+  checkBg() {
+    let bgColor = localStorage.getItem('bgProfile');
+    if (bgColor != undefined) {
+      this.bgColor = bgColor;
+    }
+  }
 
 
 

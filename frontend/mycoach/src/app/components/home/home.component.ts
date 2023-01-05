@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  userLogged: boolean = false;
+
+
+  ngOnInit() {
+    this.checkUserLogged();
+  }
+
+  checkUserLogged() {
+    if (localStorage.getItem('userLogged') == "true") {
+      this.userLogged = true;
+    }
+  }
+
+
 }

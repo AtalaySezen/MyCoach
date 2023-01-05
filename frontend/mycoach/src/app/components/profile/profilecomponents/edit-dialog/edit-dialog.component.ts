@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-dialog.component.scss']
 })
 export class EditDialogComponent {
-
 }
