@@ -8,7 +8,6 @@
                 <div class="absolute right-24">
                     <button mat-raised-button (click)="openEdit(template)">Profili Düzenle</button>
                     <!--Edit Profile Dialog-->
-
                     <ng-template #template>
                         <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
                             id="panel">
@@ -26,7 +25,7 @@
                                         </ng-template>
                                         <div class="flex-none w-auto max-w-full ">
                                             <div
-                                                class="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl relative text-white transition-all duration-200">
+                                                class="text-size-base ease-soft-in-out h-18.5 w-18.5  inline-flex items-center justify-center rounded-xl relative text-white transition-all duration-200">
                                                 <img [src]="image" alt="profile_image"
                                                     class=" w-full shadow-soft-sm rounded-xl" style="max-width: 100px;">
                                                 <div class="image-upload absolute">
@@ -109,7 +108,10 @@
                                         <div class="flex items-center">
                                             <p class="leading-normal text-size-sm">{{textUser}}</p>
                                             <mat-icon class="cursor-pointer relative bottom-1"
-                                                (click)="editText(textUser)">edit</mat-icon>
+                                                (click)="updateText(textTemplate,id,textUser)">edit</mat-icon>
+                                                <ng-template #textTemplate>
+                                                    selam
+                                                </ng-template>
                                         </div>
                                         <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
@@ -487,3 +489,4 @@
 
                     </div>
                 </div>
+

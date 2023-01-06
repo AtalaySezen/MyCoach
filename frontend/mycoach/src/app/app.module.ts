@@ -30,6 +30,7 @@ import { TrainingprogramsComponent } from './components/trainingprograms/trainin
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditDialogComponent } from './components/profile/profilecomponents/edit-dialog/edit-dialog.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     CoachsComponent,
     TrainingprogramsComponent,
     EditDialogComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,10 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { EditDialogComponent } from './profilecomponents/edit-dialog/edit-dialog.component';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { profileService } from 'src/app/services/profile.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environments.prod';
 
 @Component({
   selector: 'app-profile',
@@ -27,12 +31,12 @@ export class ProfileComponent {
   coachPage: boolean = false;
   hideMyData: boolean = false;
   autoActive: String = "Aktif Et";
-  checkActive: FormGroup
+  checkActive: FormGroup;
   bgColor: string = 'bg-slate-400';
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
-  constructor(public dialog: MatDialog, public Router: Router, private _formBuilder: FormBuilder) {
+  constructor(public http:HttpClient,public dialog: MatDialog, public Router: Router, private _formBuilder: FormBuilder,private authService:AuthService,private profileService:profileService) {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
@@ -42,24 +46,21 @@ export class ProfileComponent {
   ngOnInit() {
     this.getUserInfos();
     this.checkBg();
-
   }
 
 
   getUserInfos() {
-    //service'e ayrılacak
-    const loggedUser = JSON.parse(localStorage.getItem('user'));
-    this.username = loggedUser.username;
-    this.surname = loggedUser.surname;
-    this.email = loggedUser.email;
-    this.statusUser = loggedUser.statusUser;
-    this.id = loggedUser.id;
-    this.city = loggedUser.city;
-    this.textUser = loggedUser.textUser;
-    this.image = loggedUser.profileImage;
-    this.userAge = loggedUser.age;
-    this.userPhone = loggedUser.phone;
-    this.userInterests = loggedUser.userInterests;
+    this.username = this.authService.UserInfo.username;
+    this.surname = this.authService.UserInfo.surname;
+    this.email = this.authService.UserInfo.email;
+    this.statusUser = this.authService.UserInfo.statusUser;
+    this.id = this.authService.UserInfo.id;
+    this.city = this.authService.UserInfo.city
+    this.textUser = this.authService.UserInfo.textUser;
+    this.image = this.authService.UserInfo.profileImage;
+    this.userAge = this.authService.UserInfo.age;
+    this.userPhone = this.authService.UserInfo.phone;
+    this.userInterests = this.authService.UserInfo.userInterests;
 
     if (this.statusUser == 1) {
       this.profilePage = true;
@@ -67,11 +68,22 @@ export class ProfileComponent {
     } else if (this.statusUser == 2) {
       this.coachPage = true;
       this.profilePage = false;
-    }
+    };
+
+  }
+
+  updateText(textTemplate:any,id:number,text:string){
+    console.log(id,text)
+    this.http.put<any>(environment.usersApi + id, {
+      id:id,
+      text:text
+    })
   }
 
 
+
   editText(text: string) {
+    
     const dialogRef = this.dialog.open(EditDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -84,9 +96,8 @@ export class ProfileComponent {
       console.log("You pressed OK!")
     } else {
       console.log("You ")
-    }
+    };
   }
-
 
   //Auto Logout
   activeAutoLogout() {
@@ -97,12 +108,11 @@ export class ProfileComponent {
     if (checkLocalStorage == "true") {
       setTimeout(() => {
         localStorage.clear();
-        this.Router.navigate([''])
+        this.Router.navigate(['']);
       }, waitTime);
     }
-
-
   }
+
   visibilityIcon: string = "visibility";
   //Hide Or Show User Infos
   hideInfos() {
@@ -130,7 +140,7 @@ export class ProfileComponent {
 
 
   changeBg() {
-    this.bgColor = 'bg-red-300'
+    this.bgColor = 'bg-red-300';
   }
 
   saveBg() {
@@ -143,7 +153,8 @@ export class ProfileComponent {
     let bgColor = localStorage.getItem('bgProfile');
     if (bgColor != undefined) {
       this.bgColor = bgColor;
-    }
+    };
+    
   }
 
 

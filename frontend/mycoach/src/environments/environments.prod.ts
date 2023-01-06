@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    registerUser:"https://camperfinder.org/node/node2"
+    usersApi:"http://localhost:3000/users",
+    coachsApi : "http://localhost:3000/coachs"
   };
   
   /*

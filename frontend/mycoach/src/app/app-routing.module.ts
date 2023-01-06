@@ -4,6 +4,7 @@ import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistercoachComponent } from './components/registercoach/registercoach.component';
@@ -49,6 +50,10 @@ const routes: Routes = [
     path:'programs',
     component:TrainingprogramsComponent,
     title:'Programlarım'
+  },
+  {path:'**',
+   pathMatch:'full',
+   component:PagenotfoundComponent
   }
 
 
