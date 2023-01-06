@@ -53,7 +53,6 @@
                         </div>
                     </ng-template>
                     <!--Edit Profile Dialog Orgin-->
-
                 </div>
                 <div class="flex flex-wrap -mx-3">
                     <div class="flex-none w-auto max-w-full px-3">
@@ -66,6 +65,7 @@
                         <div class="h-full">
                             <h5 class="mb-1 text-2xl select-none">{{username +" " + surname}}</h5>
                             <p class="mb-0 font-semibold leading-normal text-lg select-none">MyCoach Üyesi</p>
+
                         </div>
                     </div>
                 </div>
@@ -107,11 +107,7 @@
                                     <div class="flex-auto p-4">
                                         <div class="flex items-center">
                                             <p class="leading-normal text-size-sm">{{textUser}}</p>
-                                            <mat-icon class="cursor-pointer relative bottom-1"
-                                                (click)="updateText(textTemplate,id,textUser)">edit</mat-icon>
-                                                <ng-template #textTemplate>
-                                                    selam
-                                                </ng-template>
+                                               
                                         </div>
                                         <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
@@ -141,7 +137,7 @@
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit">
-                                                <p class="text-slate-700 sm:text-base text-sm font-bold">Mobile :
+                                                <p class="text-slate-700 sm:text-base text-sm font-bold">Yaşınız :
                                                     <span class="font-normal">{{userAge}}</span>
                                                 </p>
                                             </li>
@@ -209,6 +205,8 @@
                                             <div
                                                 class="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
                                                 <h6 class="mb-0">Profil Ayarları</h6>
+                                                <button mat-raised-button matTooltip="Profil Ayarlarını Düzenle" (click)="editProfile(id,username,surname,password,email,statusUser,image,userAge,city,textUser,userPhone,userInterests)">Düzenle</button>
+
                                             </div>
                                             <mat-icon class="relative" matTooltip="Bilgilerimi Gizle"
                                                 (click)="hideInfos()">{{visibilityIcon}}</mat-icon>
@@ -239,34 +237,29 @@
                                             <li
                                                 class="relative block px-4 py-2 pl-0 leading-normal flex-row justify-center items-center  bg-white border-0 border-t-0 text-size-sm text-inherit">
                                                 <strong class="text-slate-700">E-Posta :</strong>
-                                                <input matTooltip="Değiştirmek İçin Tıkla" type="text" matInput
-                                                    [placeholder]="email" (change)="changeEmail()">
+                                                <p>{{email}}</p>
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit">
                                                 <strong class="text-slate-700">Şehir :</strong>
-                                                <input matTooltip="Değiştirmek İçin Tıkla" type="text" matInput
-                                                    [placeholder]="city" (change)="changeEmail()">
+                                                <p>{{city}}</p>
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit">
                                                 <strong class="text-slate-700">Mobile :</strong>
-                                                <input matTooltip="Değiştirmek İçin Tıkla" type="text" matInput
-                                                    [placeholder]="userPhone" (change)="changeEmail()">
+                                                <p>{{userPhone}}</p>
 
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit">
                                                 <strong class="text-slate-700">Yaşınız : </strong> {{userAge}}
-                                                <input matTooltip="Değiştirmek İçin Tıkla" type="number" matInput
-                                                    (change)="changeEmail()">
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
                                                 <strong class="leading-normal text-size-sm text-slate-700">İlgi
                                                     Alanları:</strong>
-                                                <input matTooltip="Değiştirmek İçin Tıkla" type="text" matInput
-                                                    [placeholder]="userInterests" (change)="changeEmail()">
+                                                    <p>{{userInterests}}</p>
+                                               
                                             </li>
                                         </ul>
                                     </div>
@@ -297,6 +290,10 @@
                                                         [disabled]="checkActive.valid" (change)="activeAutoLogout()"
                                                         formControlName="autoCheck">{{autoActive}}</mat-slide-toggle>
                                                 </form>
+                                            </li>
+                                            <li class="mt-5">
+                                                <h1>Tüm Ayarları Sıfırla</h1>
+                                                    <button mat-raised-button color="warn" (click)="resetSettings()">Sıfırla</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -414,8 +411,6 @@
                                     <div class="flex-auto p-4">
                                         <div class="flex items-center">
                                             <p class="leading-normal text-size-sm">{{textUser}}</p>
-                                            <mat-icon class="cursor-pointer relative bottom-1"
-                                                (click)="editText(textUser)">edit</mat-icon>
                                         </div>
                                         <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">

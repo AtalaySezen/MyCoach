@@ -55,7 +55,7 @@ export class RegisterComponent {
       let age = 0;
       let city = "Hangi Şehirde Yaşıyorsun?";
       let textUser = "Kendini Tanıtman için bir alan.";
-      let mobil = 0;
+      let mobil = "05555555555";
       let userInterests = "myCoach";
       console.log(this.id);
       this.http.post<any>(`http://localhost:3000/users`, {

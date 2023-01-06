@@ -1,25 +1,32 @@
-<div class="w-full py-10 px-10 flex-col">
+<div class="w-full py-10 px-10 flex-col" [formGroup]="Form">
     <div>
         <mat-form-field appearance="fill">
-            <mat-label>Input</mat-label>
-            <input matInput>
+            <mat-label>Hakkında</mat-label>
+            <input formControlName="textUser" matInput>
         </mat-form-field>
-    </div>
-    <div>
 
         <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
+            <mat-label>İletişim</mat-label>
+            <input formControlName="userPhone" matInput>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Şehir</mat-label>
+            <input formControlName="city" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Yaşınız</mat-label>
+            <input formControlName="age" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>İlgi Alanlarınız</mat-label>
+            <input formControlName="userInterests" matInput>
+        </mat-form-field>
+
     </div>
     <div>
-        <mat-form-field appearance="fill">
-            <mat-label>Textarea</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-    </div>
+    <button (click)="saveDialog()" [disabled]="Form?.invalid" mat-raised-button color="primary">save</button>
+    
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EditDialogComponent } from './profilecomponents/edit-dialog/edit-dialog.component';
@@ -36,7 +36,7 @@ export class ProfileComponent {
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
-  constructor(public http:HttpClient,public dialog: MatDialog, public Router: Router, private _formBuilder: FormBuilder,private authService:AuthService,private profileService:profileService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditDialogComponent>,public http:HttpClient,public dialog: MatDialog, public Router: Router, private _formBuilder: FormBuilder,private authService:AuthService,private profileService:profileService) {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
@@ -44,24 +44,37 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
+    this.getUserData();
     this.getUserInfos();
     this.checkBg();
   }
 
+//Get User Data From API
+  async getUserData(){
+    await this.http.get('http://localhost:3000/users').subscribe(data=>{
+      Object.entries(data).forEach(a=>{
+        a.map(x=>{
+          if(this.id == x.id){
+            this.city = x.city;
+            this.textUser = x.textUser;
+            this.image = x.profileImage;
+            this.userAge = x.age;
+            this.password = x.password;
+            this.userPhone = x.userPhone;
+            this.userInterests = x.userInterests;
+          }
+        })
+      })
+    })
+  }
 
+    //Local Storage
   getUserInfos() {
     this.username = this.authService.UserInfo.username;
     this.surname = this.authService.UserInfo.surname;
     this.email = this.authService.UserInfo.email;
-    this.statusUser = this.authService.UserInfo.statusUser;
     this.id = this.authService.UserInfo.id;
-    this.city = this.authService.UserInfo.city
-    this.textUser = this.authService.UserInfo.textUser;
-    this.image = this.authService.UserInfo.profileImage;
-    this.userAge = this.authService.UserInfo.age;
-    this.userPhone = this.authService.UserInfo.phone;
-    this.userInterests = this.authService.UserInfo.userInterests;
-
+    this.statusUser = this.authService.UserInfo.statusUser;
     if (this.statusUser == 1) {
       this.profilePage = true;
       this.coachPage = false;
@@ -69,36 +82,38 @@ export class ProfileComponent {
       this.coachPage = true;
       this.profilePage = false;
     };
-
+    console.log(this.profilePage,this.coachPage)
   }
 
-  updateText(textTemplate:any,id:number,text:string){
-    console.log(id,text)
-    this.http.put<any>(environment.usersApi + id, {
-      id:id,
-      text:text
+
+//Edit Dialog
+  editProfile(id:number,username:string,surname:string,password:any,email:any,statusUser:number,profileImage:string,age:number,city:string,textUser:string,userPhone:any,userInterests:any) {
+console.log(userPhone);
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+
+      width: '100%',
+      height: 'auto',
+      data: {
+        title: 'Edit Profile',
+        id: id,
+        username:username,
+        surname:surname,
+        password:password,
+        email:email,
+        statusUser:statusUser,
+        profileImage:profileImage,
+        age:age,
+        city:city,
+        textUser:textUser,
+        userPhone:userPhone,
+        userInterests:userInterests,
+      },
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.getUserData();
     })
   }
-
-
-
-  editText(text: string) {
-    
-    const dialogRef = this.dialog.open(EditDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-
-  changeEmail() {
-    if (confirm("Press a button!") == true) {
-      console.log("You pressed OK!")
-    } else {
-      console.log("You ")
-    };
-  }
-
+ 
   //Auto Logout
   activeAutoLogout() {
     localStorage.setItem('autoout', 'true');
@@ -153,11 +168,16 @@ export class ProfileComponent {
     let bgColor = localStorage.getItem('bgProfile');
     if (bgColor != undefined) {
       this.bgColor = bgColor;
-    };
-    
+    }else{
+      this.bgColor = this.bgColor;
+    }
   }
 
-
+  resetSettings(){
+    localStorage.removeItem('bgProfile');
+    window.location.reload();
+    this.checkBg();
+  }
 
 
 }

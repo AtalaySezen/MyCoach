@@ -35,6 +35,7 @@ export class RegistercoachComponent {
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        licenses:new FormControl('',[Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         selected: new FormControl('', [Validators.required])
       })
@@ -54,17 +55,28 @@ export class RegistercoachComponent {
       let surname = this.registerForm.get('surname')?.value;
       let password = this.registerForm.get('password')?.value;
       let email = this.registerForm.get('email')?.value;
-      let experienceCoach = this.registerForm.get('selected')?.value;
       let statusUser = 2
+      let profileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+      let age = 0;
+      let city = "Hangi Şehirde Yaşıyorsun?";
+      let textUser = "Kendini Tanıtman için bir alan.";
+      let mobil = "05555555555";
+      let userInterests = "myCoach";
+
       console.log(this.id);
       this.http.post<any>(`http://localhost:3000/coachs`, {
         id: this.id + 1,
         username: username,
         surname: surname,
         password: password,
-        experienceCoach: experienceCoach,
         email: email,
-        statusUser: statusUser
+        statusUser: statusUser,
+        profileImage: profileImage,
+        age: age,
+        city: city,
+        textUser: textUser,
+        mobil: mobil,
+        userInterests: userInterests
       }).subscribe(data => {
         if (data) {
           console.log("ok")

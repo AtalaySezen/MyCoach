@@ -31,6 +31,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { EditDialogComponent } from './components/profile/profilecomponents/edit-dialog/edit-dialog.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -66,11 +67,15 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     MatTooltipModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
+    HttpClientModule,
     MatButtonModule,
     MatButtonToggleModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+],
   bootstrap: [AppComponent]
 
 })
