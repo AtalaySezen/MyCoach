@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
@@ -18,8 +19,14 @@ html,
 body {
   height: 100%;
   scroll-behavior: smooth;
+  background-color: white;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+.text-color{
+  color: rgba(23, 28, 33, 0.87);
+  
 }

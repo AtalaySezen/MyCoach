@@ -32,6 +32,8 @@ import { EditDialogComponent } from './components/profile/profilecomponents/edit
 import {MatTabsModule} from '@angular/material/tabs';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SwiperModule } from 'swiper/angular';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatCheckboxModule,
     MatInputModule,
     MatMenuModule,
     HttpClientModule,
@@ -64,6 +67,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     MatButtonModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    SwiperModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
     AppRoutingModule,

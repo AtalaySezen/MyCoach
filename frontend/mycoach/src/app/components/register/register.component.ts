@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
-interface Gender {
+import { MatDialog } from '@angular/material/dialog';
+interface Ages {
   value: string;
   viewValue: string;
 }
@@ -16,26 +16,28 @@ interface Gender {
 export class RegisterComponent {
 
   hide = true;
+  hide2 = true;
   loading: boolean = false
   registerForm: FormGroup
   idCount: Array<any>;
   id: number;
   checkActive: FormGroup;
 
-  gender: Gender[] = [
+  ages: Ages[] = [
     { value: '1-3', viewValue: '1-3' },
     { value: '3-6', viewValue: '3-6' },
     { value: '6+', viewValue: '6+' },
   ];
 
-  constructor(private http: HttpClient, public Router: Router) {
+  constructor(private http: HttpClient, public Router: Router,private dialog:MatDialog) {
     {
       this.registerForm = new FormGroup({
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-        email: new FormControl('', [Validators.required, Validators.email])
-
+        rePassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        checkbox: new FormControl(false, [Validators.requiredTrue])
       })
     }
   }
@@ -85,6 +87,18 @@ export class RegisterComponent {
 
     })
   }
+
+//Open nondisclosure agreement
+
+openAgreement(template:any){
+  let dialogRef = this.dialog.open(template, {
+    width: '100%'
+  });
+}
+
+
+
+
 
 
 

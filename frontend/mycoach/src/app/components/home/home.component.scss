@@ -1,3 +1,38 @@
-.mat-height{
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+.mat-height {
     min-height: 2.5rem !important;
+    border-radius: 15px !important;
+}
+
+.buttons button {
+    margin: 1rem 5px;
+}
+
+
+.bg-section {
+    background-color: #F4F4F4;
+    border-radius: 25px;
+}
+
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: #E05028;
+}
+
+@media(max-width:900px) {
+    .buttons button {
+        width: 100%;
+        margin: 5px 5px;
+    }
 }

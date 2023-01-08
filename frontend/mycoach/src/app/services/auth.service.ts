@@ -19,7 +19,7 @@ get UserInfo() {
 }
 
 Logout(){
-    localStorage.removeItem('user');
+    localStorage.removeItem('userLogged');
     this.Router.navigate(['login']);
 }
 

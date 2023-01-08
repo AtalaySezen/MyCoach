@@ -1,9 +1,8 @@
 <div class="w-full sm:flex md:flex justify-center items-center h-full my-0">
     <app-loading class="mx-auto absolute" *ngIf="loading"></app-loading>
 
-    <div class="sm:w-3/6 w-full flex justify-center items-center h-full">
+    <div class="sm:w-3/6 w-full flex justify-center items-center h-full sm:mt-0 mt-24 sm:mb-0 mb-10 ">
         <div class="flex-col">
-
             <div class="flex-col mx-auto header text-center pb-10 w-3/4">
                 <h1 class="text-3xl font-bold">MyCoach</h1>
                 <h2 class="text-xl mt-2 font-semibold">Antreman, Sağlıklı Beslenme & Daha İyi Bir Yaşam İçin Bize
@@ -13,7 +12,6 @@
                     <span class="font-bold underline hover cursor-pointer">Kayıt Olun</span></mat-label>
             </div>
             <form [formGroup]="registerForm" class="flex-col items-center justify-center w-full">
-
                 <div>
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>Adınız</mat-label>
@@ -23,7 +21,6 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-
                 <div>
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>Soyadınız</mat-label>
@@ -33,7 +30,6 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-
                 <div>
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>E-Posta Adresiniz</mat-label>
@@ -42,8 +38,6 @@
                             Lütfen Geçerli Bir Mail Adresi Girin
                         </mat-error>
                     </mat-form-field>
-
-
                 </div>
                 <div>
                     <mat-form-field class="w-full" appearance="fill">
@@ -64,14 +58,27 @@
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>Şifrenizi Tekrar Girin</mat-label>
                         <div class="flex items-center justify-center relative">
-                            <input matInput [type]="hide ? 'password' : 'text'">
-                            <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide = !hide">{{hide ?
+                            <input matInput formControlName="rePassword" [type]="hide2 ? 'password' : 'text'">
+                            <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide2 = !hide2">{{hide2 ?
                                 'visibility_off'
                                 : 'visibility'}}</mat-icon>
                         </div>
                     </mat-form-field>
                 </div>
-                <div class="flex items-center flex-col">
+                <div>
+                        <mat-checkbox formControlName="checkbox" class="example-margin ">
+                            <span (click)="openAgreement(template)" class="underline text-base">Gizlilik Sözleşmesini Okudum</span>
+                        </mat-checkbox>
+                        <ng-template #template>
+                            <div class="flex flex-col items-center justify-center overflow-hidden">
+                                <p class="py-8 px-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi exercitationem corrupti ducimus rem soluta perspiciatis dolorum ut quidem libero assumenda sunt cumque, delectus beatae nulla asperiores non velit doloribus ex harum facere ad commodi laudantium! Illo voluptates, numquam quia, dolor quo a aspernatur voluptatibus facere, ex neque cumque. Praesentium, provident. Quaerat deserunt odit ducimus id modi ipsum adipisci incidunt harum!</p>
+                                <div>
+                                    <button class="pb-3 mb-5" mat-dialog-close="true" mat-raised-button color="primary">Okudum, anladım</button>
+                                </div>
+                            </div>
+                        </ng-template>
+                </div>
+                <div class="flex items-center flex-col sm:mb-0 mb-5">
                     <button class="w-full mat-height " mat-raised-button color="warn" (click)="saveUser()"
                         [disabled]="registerForm.invalid">Kayıt
                         Ol</button>
@@ -87,8 +94,7 @@
 
     </div>
 
-
-    <div class="sm:w-3/6 w-full bg-register bg-no-repeat bg-cover bg-center  h-full">
+    <div class="w-3/6 sm:block hidden bg-register bg-no-repeat bg-cover bg-center  h-full">
     </div>
 
 </div>

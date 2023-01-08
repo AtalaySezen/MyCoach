@@ -82,7 +82,6 @@ export class ProfileComponent {
       this.coachPage = true;
       this.profilePage = false;
     };
-    console.log(this.profilePage,this.coachPage)
   }
 
 
