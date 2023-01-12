@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-edit-dialog',
@@ -15,6 +16,7 @@ export class EditDialogComponent {
 
 constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
     private http: HttpClient,
+    private snackBar:SnackbarService,
     @Inject(MAT_DIALOG_DATA) public data: any){
       {
         this.Form = new FormGroup({
@@ -66,10 +68,11 @@ constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
       }).subscribe(data => {
         if (data) {
           console.log("kaydedildi")
+          this.snackBar.showNotification('Başarıyla Güncellendi','Kapat');
           this.dialogRef.close({ event: 'success' });
         } else {
           console.log("hata")
-      
+          this.snackBar.showNotification('Bir Hata Oluştu','Kapat');
         }
       })
     }

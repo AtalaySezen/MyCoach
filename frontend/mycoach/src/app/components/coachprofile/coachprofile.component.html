@@ -1,0 +1,172 @@
+<div *ngIf="coachPage">
+    <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200 "
+        id="panel">
+        <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
+            id="navbarTop" navbar-scroll="true">
+            <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+                <li class="flex items-center pl-4 xl:hidden">
+                    <a href="javascript:;"
+                        class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500"
+                        sidenav-trigger="">
+                        <div class="w-4.5 overflow-hidden">
+                            <i
+                                class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                            <i
+                                class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="flex items-center px-4">
+                    <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
+                        <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
+
+                    </a>
+                </li>
+
+                <li class="relative flex items-center pr-2">
+                    <p class="hidden transform-dropdown-show"></p>
+                    <a href="javascript:;"
+                        class="block p-0 transition-all text-size-sm ease-nav-brand text-slate-500"
+                        dropdown-trigger="" aria-expanded="false">
+                        <i class="cursor-pointer fa fa-bell" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="w-full px-6 py-6 mx-auto  text-slate-500">
+                <div
+                    class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur rounded-2xl bg-slate-400 bg-clip-border mb-4">
+                    <div class="absolute right-24">
+                        <mat-icon matTooltip="Profili Düzenle">edit</mat-icon>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3">
+                        <div class="flex-none w-auto max-w-full px-3">
+                            <div
+                                class="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
+                                <img [src]="image" alt="profile_image" class="max-w-xs shadow-soft-sm rounded-xl">
+
+                            </div>
+
+                        </div>
+                        <div class="flex-none text-white w-auto max-w-full px-3 my-auto">
+                            <div class="h-full">
+                                <h5 class="mb-1 text-2xl select-none">{{username +" " + surname}}</h5>
+                                <p class="mb-0 font-semibold leading-normal text-lg select-none">MyCoach
+                                    Antrenör</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="w-full p-3 mt-6 mx-auto removable ">
+                    <div class="flex flex-wrap -mx-3">
+                        <div class="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
+                            <div
+                                class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+                                <div class="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
+                                    <div class="flex flex-wrap -mx-3">
+                                        <div
+                                            class="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
+                                            <h6 class="mb-0">Profil Bilgileri</h6>
+                                        </div>
+                                        <div
+                                            class="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
+                                            <a href="javascript:;" data-target="tooltip_trigger"
+                                                data-placement="top">
+                                                <i class="leading-normal fas fa-user-edit text-size-sm text-slate-400"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                            <div data-target="tooltip"
+                                                class="px-2 py-1 text-center text-white bg-black rounded-lg text-size-sm hidden"
+                                                role="tooltip" data-popper-placement="top"
+                                                style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(869.5px, -417.5px, 0px);">
+                                                Edit Profile
+                                                <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
+                                                    data-popper-arrow=""
+                                                    style="position: absolute; left: 0px; transform: translate3d(0px, 0px, 0px);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex-auto p-4">
+                                    <div class="flex items-center">
+                                        <p class="leading-normal text-size-sm">{{textUser}}</p>
+                                    </div>
+                                    <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
+                                    <ul class="flex flex-col pl-0 mb-0 rounded-lg">
+                                        <li
+                                            class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit">
+                                            <strong class="text-slate-700">Ad Soyad :</strong> {{username +"
+                                            "+surname}}
+                                        </li>
+                                        <li
+                                            class="relative block px-4 py-2 pl-0 leading-normal flex-row justify-center items-center  bg-white border-0 border-t-0 text-size-sm text-inherit">
+                                            <strong class="text-slate-700">E-Posta :</strong>
+                                            <span>{{email}}</span>
+                                        </li>
+                                        <li
+                                            class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit">
+                                            <strong class="text-slate-700">Şehir :</strong>
+                                            <span>{{city}}</span>
+                                        </li>
+                                        <li
+                                            class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit">
+                                            <strong class="text-slate-700">Mobile :</strong>
+                                            <span>{{userPhone}}</span>
+                                        </li>
+                                        <li
+                                            class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit">
+                                            <strong class="text-slate-700">Yaşınız : </strong> {{userAge}}
+                                        </li>
+
+                                        <li
+                                            class="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
+                                            <strong class="leading-normal text-size-sm text-slate-700">İlgi
+                                                Alanları:</strong> <span>{{userInterests}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
+                            <div
+                                class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+                                <div class="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
+                                    <h6 class="mb-0">Programlarım</h6>
+                                    <a routerLink="/programs"
+                                        class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85 text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Tüm
+                                        Programları Görüntüle</a>
+                                </div>
+                                <div class="flex-auto p-4">
+                                    <ul class="flex flex-col pl-0 mb-0 rounded-lg">
+                                        <li
+                                            class="relative flex items-center px-0 py-2 mb-2 bg-white border-0 rounded-t-lg text-inherit">
+                                            <div
+                                                class="inline-flex items-center justify-center w-12 h-12 mr-4 text-white transition-all duration-200 text-size-base ease-soft-in-out rounded-xl">
+                                                <img [src]="image" alt="kal"
+                                                    class="w-full shadow-soft-2xl rounded-xl">
+                                            </div>
+                                            <div class="flex flex-col items-start justify-center">
+                                                <h6 class="mb-0 leading-normal text-size-sm">Miraç Doğan
+                                                </h6>
+                                                <p class="mb-0 leading-tight text-size-xs">Basket Programı!
+                                                </p>
+                                            </div>
+                                            <a
+                                                class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85 text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Görüntüle</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div> -->

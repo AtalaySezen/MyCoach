@@ -39,6 +39,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
+import { VerifyComponent } from './components/verify/verify.component';
+import { Thankyou1Component } from './components/thankyou1/thankyou1.component';
+import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
+import { EditcoachprofileComponent } from './components/coachprofile/editcoachprofile/editcoachprofile.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +64,10 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
     SnackbarComponent,
     BlogComponent,
     PrivacyComponent,
+    VerifyComponent,
+    Thankyou1Component,
+    CoachprofileComponent,
+    EditcoachprofileComponent,
   ],
   imports: [
     BrowserModule,

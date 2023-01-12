@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistercoachComponent } from './components/registercoach/registercoach.component';
 import { TrainingprogramsComponent } from './components/trainingprograms/trainingprograms.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -69,10 +70,15 @@ const routes: Routes = [
     component:PrivacyComponent,
     title:'Gizlilik Sözleşmesi'
   },
+  {
+    path:'verify',
+    component:VerifyComponent
+  },
   {path:'**',
    pathMatch:'full',
    component:PagenotfoundComponent
   }
+
 
 
 ];

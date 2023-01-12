@@ -1,20 +1,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EditDialogComponent } from './profilecomponents/edit-dialog/edit-dialog.component';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { profileService } from 'src/app/services/profile.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { EditcoachprofileComponent } from './editcoachprofile/editcoachprofile.component';
+
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-coachprofile',
+  templateUrl: './coachprofile.component.html',
+  styleUrls: ['./coachprofile.component.scss']
 })
-export class ProfileComponent {
+export class CoachprofileComponent {
 
   username: string;
   surname: string;
@@ -37,8 +38,9 @@ export class ProfileComponent {
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditcoachprofileComponent>,
     public http:HttpClient,
     public dialog: MatDialog, 
     public Router: Router, 
@@ -62,7 +64,7 @@ export class ProfileComponent {
 
 //Get User Data From API
   async getUserData(){
-    await this.http.get('http://localhost:3000/users').subscribe(data=>{
+    await this.http.get('http://localhost:3000/coachs').subscribe(data=>{
       Object.entries(data).forEach(a=>{
         a.map(x=>{
           if(this.id == x.id){
@@ -99,7 +101,7 @@ export class ProfileComponent {
 //Edit Dialog
 editProfile(id:number,username:string,surname:string,password:any,email:any,statusUser:number,profileImage:string,age:number,city:string,textUser:string,userPhone:any,userInterests:any) {
 console.log(userPhone);
-    const dialogRef = this.dialog.open(EditDialogComponent, {
+    const dialogRef = this.dialog.open(EditcoachprofileComponent, {
       width: '100%',
       height: 'auto',
       data: {

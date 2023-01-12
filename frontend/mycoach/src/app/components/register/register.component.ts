@@ -84,7 +84,7 @@ export class RegisterComponent {
       }).subscribe(data => {
         if (data) {
           this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu','Kapat');
-          this.Router.navigate(['/login']);
+          this.Router.navigate(['/verify']);
           console.log("ok")
 
         } else {

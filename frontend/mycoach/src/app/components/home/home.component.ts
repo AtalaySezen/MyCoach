@@ -18,14 +18,23 @@ SwiperCore.use([Navigation, Scrollbar, A11y]);
 export class HomeComponent {
 
   userLogged: boolean = false;
-  changeImage:string = 'https://images.pexels.com/photos/4348638/pexels-photo-4348638.jpeg?auto=compress&cs=tinysrgb&w=1600';
+  changeImage:string = 'https://images.pexels.com/photos/2468339/pexels-photo-2468339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
   durationInSeconds = 5;
   constructor(
     private elementRef: ElementRef,
     private notifyService:SnackbarService)
     {}
 
-
+    swiperConfig: any = {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        breakpoints: {
+            992: {
+              slidesPerView:3,
+              spaceBetween: 20
+            }
+        }
+    }
 
   ngOnInit() {
     this.checkUserLogged();
