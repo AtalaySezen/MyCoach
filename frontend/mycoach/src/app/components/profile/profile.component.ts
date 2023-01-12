@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { profileService } from 'src/app/services/profile.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-profile',
@@ -36,7 +37,17 @@ export class ProfileComponent {
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditDialogComponent>,public http:HttpClient,public dialog: MatDialog, public Router: Router, private _formBuilder: FormBuilder,private authService:AuthService,private profileService:profileService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditDialogComponent>,
+    public http:HttpClient,
+    public dialog: MatDialog, 
+    public Router: Router, 
+    private _formBuilder: FormBuilder,
+    private authService:AuthService,
+    private profileService:profileService,
+    private snackBar:SnackbarService
+    ) 
+    {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
@@ -110,6 +121,7 @@ console.log(userPhone);
     });
     dialogRef.afterClosed().subscribe(data => {
       this.getUserData();
+      this.snackBar.showNotification('Başarıyla Güncellendi','Kapat');
     })
   }
  
@@ -144,6 +156,7 @@ console.log(userPhone);
       width: '100%',
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.snackBar.showNotification('Başarıyla Güncellendi','Kapat');
       this.checkBg();
     });
   }

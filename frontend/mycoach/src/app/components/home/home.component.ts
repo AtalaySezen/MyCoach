@@ -20,7 +20,10 @@ export class HomeComponent {
   userLogged: boolean = false;
   changeImage:string = 'https://images.pexels.com/photos/4348638/pexels-photo-4348638.jpeg?auto=compress&cs=tinysrgb&w=1600';
   durationInSeconds = 5;
-  constructor(private elementRef: ElementRef,private notifyService:SnackbarService) {}
+  constructor(
+    private elementRef: ElementRef,
+    private notifyService:SnackbarService)
+    {}
 
 
 

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 interface Ages {
   value: string;
   viewValue: string;
@@ -29,8 +30,13 @@ export class RegisterComponent {
     { value: '6+', viewValue: '6+' },
   ];
 
-  constructor(private http: HttpClient, public Router: Router,private dialog:MatDialog) {
-    {
+  constructor(
+    private http: HttpClient, 
+    public Router: Router,
+    private dialog:MatDialog,
+    private snackBar:SnackbarService) {
+    
+      {
       this.registerForm = new FormGroup({
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
@@ -40,6 +46,7 @@ export class RegisterComponent {
         checkbox: new FormControl(false, [Validators.requiredTrue])
       })
     }
+
   }
 
   ngOnInit() { }
@@ -76,21 +83,20 @@ export class RegisterComponent {
         userInterests: userInterests
       }).subscribe(data => {
         if (data) {
-          alert("başarıyla oluşturuldu");
+          this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu','Kapat');
           this.Router.navigate(['/login']);
           console.log("ok")
 
         } else {
-          alert("hata");
+          this.snackBar.showNotification('Bir Hata Var','Kapat');
           console.log("hata")
         }
-      })
+      },err=>console.log(err))
 
     })
   }
 
 //Open nondisclosure agreement
-
 openAgreement(template:any){
   let dialogRef = this.dialog.open(template, {
     width: '100%'

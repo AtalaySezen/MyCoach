@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,12 @@ export class LoginComponent {
   idCount: Array<any>;
   id: number;
 
-  constructor(private http: HttpClient, private route: Router, private loginApi:AuthService) {
+  constructor(
+     private http: HttpClient,
+     private route: Router, 
+     private loginApi:AuthService,
+     private snackService:SnackbarService
+     ) {
     {
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,9 +32,7 @@ export class LoginComponent {
     }
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   //Service'den alınacak.
   loginUser() {
@@ -42,19 +46,21 @@ export class LoginComponent {
           console.log(user);
           let userInfos = user.id + user.username + user.surname + user.email;
           localStorage.setItem("user", JSON.stringify(user));
-          alert("hoşgeldin");
+          this.snackService.showNotification(`Hoşgeldin ${user.username}`,'Kapat');
           localStorage.setItem('userLogged', "true");
           this.loginForm.reset();
           this.route.navigate(['profile'])
 
         } else {
-          alert("user not found");
+          this.snackService.showNotification('Kullanıcı Bulunamadı','Kapat');
         }
       }, err => {
         console.log("hata var");
       })
 
   }
+
+
 
 
 }

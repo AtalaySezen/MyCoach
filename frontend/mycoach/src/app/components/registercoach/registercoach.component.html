@@ -91,11 +91,11 @@
                         <mat-label>Kaç Yıllık Tecrübelisiniz?</mat-label>
                         <select matNativeControl (change)="selectCar($event)" formControlName="selected">
                             <option value=""></option>
-                            <option *ngFor="let option of ages"  [value]="option.value"
-                                [selected]="selectedCar === option.value">{{ option.viewValue }}</option>
+                            <option *ngFor="let option of experience"  [value]="option.value"
+                                [selected]="selectedExperience === option.value">{{ option.viewValue }}</option>
                         </select>
                     </mat-form-field>
-                    <p>You selected: {{selectedCar}}</p>
+                    <p>You selected: {{selectedExperience}}</p>
                 </div>
 
                 <div class="flex items-center flex-col">
