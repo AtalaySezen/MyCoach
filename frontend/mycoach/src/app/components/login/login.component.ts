@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   idCount: Array<any>;
   id: number;
 
-  constructor(private http: HttpClient, private route: Router) {
+  constructor(private http: HttpClient, private route: Router, private loginApi:AuthService) {
     {
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -29,6 +30,7 @@ export class LoginComponent {
 
   }
 
+  //Service'den alınacak.
   loginUser() {
     this.http.get<any>("http://localhost:3000/users")
       .subscribe(res => {
@@ -51,11 +53,6 @@ export class LoginComponent {
       }, err => {
         console.log("hata var");
       })
-
-
-
-
-
 
   }
 

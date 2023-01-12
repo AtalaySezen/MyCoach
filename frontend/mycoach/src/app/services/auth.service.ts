@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class AuthService{
 
-constructor(public Router:Router){}
+constructor(public Router:Router,public http:HttpClient){}
     
 
 get UserInfo() {
@@ -23,7 +23,18 @@ Logout(){
     this.Router.navigate(['login']);
 }
 
-    
+LoginUser(){
+    return this.http.get<any>("http://localhost:3000/users")
+}
+
+RegisterUser(data:any){
+    return this.http.post<any>("http://localhost:3000/users",data)
+}
+
+
+RegisterCoach(data:any){
+    return this.http.post<any>("http://localhost:3000/coachs",data)
+}
     
     
 

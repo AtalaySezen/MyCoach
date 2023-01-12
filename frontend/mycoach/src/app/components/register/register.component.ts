@@ -45,6 +45,7 @@ export class RegisterComponent {
   ngOnInit() { }
 
 
+  //Service'den alınacak.
   saveUser() {
     this.http.get('http://localhost:3000/users').subscribe(data => {
       this.id = Object.keys(data).length

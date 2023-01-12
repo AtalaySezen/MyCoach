@@ -34,6 +34,11 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SwiperModule } from 'swiper/angular';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AboutComponent } from './components/about/about.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarComponent } from './shared/snackbar/snackbar.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     TrainingprogramsComponent,
     EditDialogComponent,
     PagenotfoundComponent,
+    AboutComponent,
+    SnackbarComponent,
+    BlogComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +74,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatSlideToggleModule,
     MatPaginatorModule,
     SwiperModule,

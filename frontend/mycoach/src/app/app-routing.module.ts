@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './components/about/about.component';
+import { BlogComponent } from './components/blog/blog.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistercoachComponent } from './components/registercoach/registercoach.component';
@@ -50,6 +53,21 @@ const routes: Routes = [
     path:'programs',
     component:TrainingprogramsComponent,
     title:'Programlarım'
+  },
+  {
+    path:'about',
+    component:AboutComponent,
+    title:'Hakkımızda'
+  },
+  {
+    path:'blogs',
+    component:BlogComponent,
+    title:'Bloglar'
+  },
+  {
+    path:'privacy',
+    component:PrivacyComponent,
+    title:'Gizlilik Sözleşmesi'
   },
   {path:'**',
    pathMatch:'full',

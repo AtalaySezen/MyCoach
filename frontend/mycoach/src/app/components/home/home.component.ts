@@ -3,6 +3,9 @@ import { SwiperComponent } from "swiper/angular";
 
 // import Swiper core and required modules
 import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from "swiper";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { SnackbarComponent } from "src/app/shared/snackbar/snackbar.component";
+import { SnackbarService } from "src/app/services/snackbar.service";
 SwiperCore.use([Navigation, Scrollbar, A11y]);
 
 
@@ -16,14 +19,8 @@ export class HomeComponent {
 
   userLogged: boolean = false;
   changeImage:string = 'https://images.pexels.com/photos/4348638/pexels-photo-4348638.jpeg?auto=compress&cs=tinysrgb&w=1600';
-  
-  constructor(private elementRef: ElementRef) {}
-
-
-//   ngAfterViewInit() {
-//     this.elementRef.nativeElement.ownerDocument
-//         .body.style.backgroundColor = '#F4F4F4';
-// }
+  durationInSeconds = 5;
+  constructor(private elementRef: ElementRef,private notifyService:SnackbarService) {}
 
 
 
@@ -37,8 +34,12 @@ export class HomeComponent {
     }
   }
 
- 
+  test(){
+    this.notifyService.showNotification('Çok Yakında!','Kapat');
+  }
 
+
+  
 
 
 
