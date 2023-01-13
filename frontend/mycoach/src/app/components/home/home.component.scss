@@ -28,6 +28,20 @@
 .swiper-button-prev:after,
 .swiper-button-next:after {
     color: #E05028;
+    font-weight: 600;
+}
+
+.button-home {
+    background-color: #EF483E;
+    height: 53px;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 550;
+}
+
+.button-home:hover {
+    transform: scale(1);
 }
 
 @media(max-width:900px) {

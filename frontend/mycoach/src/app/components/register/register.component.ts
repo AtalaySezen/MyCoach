@@ -103,7 +103,13 @@ openAgreement(template:any){
   });
 }
 
+ifMatchPassword: boolean = false;
 
+matchPassword(): boolean {
+  let password: string = this.registerForm.get('password')?.value;
+  let passwordAgain: string = this.registerForm.get('rePassword')?.value;
+  return (password == passwordAgain) ? this.ifMatchPassword = false : this.ifMatchPassword = true;
+}
 
 
 

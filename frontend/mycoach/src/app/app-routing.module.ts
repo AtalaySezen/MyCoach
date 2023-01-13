@@ -15,70 +15,71 @@ import { TrainingprogramsComponent } from './components/trainingprograms/trainin
 import { VerifyComponent } from './components/verify/verify.component';
 
 const routes: Routes = [
+
   {
     path: '',
     component: HomeComponent,
-    title: 'Anasayfa'
+    title: 'MyCoach | Anasayfa'
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Giriş'
+    title: 'MyCoach | Giriş'
   },
   {
     path: 'register',
     component: RegisterComponent,
-    title: 'Kayıt Ol'
+    title: 'MyCoach | Kayıt Ol'
   },
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'İletişim'
+    title: 'MyCoach | İletişim'
   },
   {
     path: 'registercoach',
     component: RegistercoachComponent,
-    title: 'Kayıt Olma Formu'
+    title: 'MyCoach | Kayıt Ol'
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    title: 'Profil'
+    title: 'MyCoach | Profil'
   },
   {
     path: 'coachs',
     component: CoachsComponent,
-    title: 'Koçlarımız'
+    title: 'MyCoach | Koçlarımız'
   },
   {
     path:'programs',
     component:TrainingprogramsComponent,
-    title:'Programlarım'
+    title:'MyCoach | Programlarım'
   },
   {
     path:'about',
     component:AboutComponent,
-    title:'Hakkımızda'
+    title:'MyCoach | Hakkımızda'
   },
   {
     path:'blogs',
     component:BlogComponent,
-    title:'Bloglar'
+    title:'MyCoach | Bloglar'
   },
   {
     path:'privacy',
     component:PrivacyComponent,
-    title:'Gizlilik Sözleşmesi'
+    title:'MyCoach | Gizlilik Sözleşmesi'
   },
   {
     path:'verify',
-    component:VerifyComponent
+    component:VerifyComponent,
+    title:'MyCoach | Onayla'
   },
   {path:'**',
    pathMatch:'full',
    component:PagenotfoundComponent
   }
-
 
 
 ];

@@ -6,10 +6,10 @@
 
             <div class="flex-col mx-auto header text-center pb-10 w-3/4">
                 <h1 class="text-3xl font-bold">MyCoach</h1>
-                <h2 class="text-xl mt-2 font-semibold">Tekrardan Hoş Geldin</h2>
+                <h2 class="text-xl mt-2 font-semibold">Hoş Geldin</h2>
             </div>
-            <form [formGroup]="loginForm" class="flex-col  items-center justify-center w-full">
 
+            <form [formGroup]="loginForm" class="flex-col  items-center justify-center w-full">
                 <div>
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>E-Posta Adresiniz</mat-label>
@@ -36,15 +36,12 @@
                 </div>
 
                 <div class="flex items-center flex-col">
-                    <button class="w-full mat-height text-lg" mat-raised-button color="primary"
+                    <button class="w-full mat-height text-lg" mat-raised-button color="warn"
                         (click)="loginUser()" [disabled]="loginForm.invalid">Giriş Yap</button>
-                    <mat-label routerLink="/register" class="mt-5 cursor-pointer text-center">Hesabınız Yok Mu?
+                    <mat-label routerLink="/register" class="mt-5 cursor-pointer text-center text-lg">Hesabınız Yok Mu?
                         <br>
-                        <span class="font-bold">Kayıt Olun</span></mat-label>
+                        <span class="font-bold text-lg hover:underline transition-all">Kayıt Olun</span></mat-label>
                 </div>
-
-
-
             </form>
 
         </div>

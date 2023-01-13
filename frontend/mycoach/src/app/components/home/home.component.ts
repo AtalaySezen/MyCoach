@@ -28,10 +28,15 @@ export class HomeComponent {
     swiperConfig: any = {
         slidesPerView: 'auto',
         spaceBetween: 20,
+        navigation: true,
+        pagination: { clickable: true },
         breakpoints: {
             992: {
               slidesPerView:3,
-              spaceBetween: 20
+              spaceBetween: 20,
+              Navigation:true,
+              Navigator:true
+              
             }
         }
     }
