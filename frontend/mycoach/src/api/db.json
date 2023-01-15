@@ -9,9 +9,9 @@
       "statusUser": 1,
       "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
       "age": "26",
-      "city": "Hangi Şehirde Yaşıyorsun?",
-      "textUser": "selamlar ben atalay7",
-      "userPhone": "213131312",
+      "city": "İstanbul",
+      "textUser": "selamlar, ben Atalay. Fitness ile ilgileniyorum.",
+      "userPhone": "5346115043",
       "userInterests": "myCoach"
     },
     {
@@ -34,6 +34,20 @@
       "surname": "testlerr",
       "password": "testler",
       "email": "test@gmail.com",
+      "statusUser": 1,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": 0,
+      "city": "Hangi Şehirde Yaşıyorsun?",
+      "textUser": "Kendini Tanıtman için bir alan.",
+      "mobil": "05555555555",
+      "userInterests": "myCoach"
+    },
+    {
+      "id": 4,
+      "username": "testler",
+      "surname": "testet",
+      "password": "atalay96",
+      "email": "testler@gmail.com",
       "statusUser": 1,
       "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
       "age": 0,

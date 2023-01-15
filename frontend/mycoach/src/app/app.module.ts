@@ -44,6 +44,7 @@ import { Thankyou1Component } from './components/thankyou1/thankyou1.component';
 import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
 import { EditcoachprofileComponent } from './components/coachprofile/editcoachprofile/editcoachprofile.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {MatChipsModule} from '@angular/material/chips';
     BrowserModule,
     MatIconModule,
     MatSelectModule,
+    NgxMaskDirective,
     MatFormFieldModule,
     MatCheckboxModule,
     MatInputModule,
@@ -98,7 +100,9 @@ import {MatChipsModule} from '@angular/material/chips';
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} },
+    [provideNgxMask()]
+
 ],
   bootstrap: [AppComponent]
 

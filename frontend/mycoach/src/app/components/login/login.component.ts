@@ -50,9 +50,8 @@ export class LoginComponent {
           localStorage.setItem('userLogged', "true");
           this.loginForm.reset();
           this.route.navigate(['profile'])
-
         } else {
-          this.snackService.showNotification('Kullanıcı Bulunamadı','Kapat');
+          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı','Kapat');
         }
       }, err => {
         console.log("hata var");

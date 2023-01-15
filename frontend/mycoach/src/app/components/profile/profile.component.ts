@@ -8,6 +8,7 @@ import { profileService } from 'src/app/services/profile.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-profile',
@@ -188,6 +189,11 @@ console.log(userPhone);
     window.location.reload();
     this.checkBg();
   }
+
+
+
+
+
 
 
 }
