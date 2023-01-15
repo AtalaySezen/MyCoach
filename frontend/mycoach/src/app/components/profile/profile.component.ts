@@ -25,7 +25,7 @@ export class ProfileComponent {
   statusUser: number;
   id: number;
   city: string;
-  image: string;
+  image: any;
   userInterests: any;
   userAge: number;
   userPhone: any;
@@ -60,6 +60,8 @@ export class ProfileComponent {
     this.getUserData();
     this.getUserInfos();
     this.checkBg();
+    this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
+
   }
 
 //Get User Data From API
@@ -188,6 +190,10 @@ console.log(userPhone);
     localStorage.removeItem('bgProfile');
     window.location.reload();
     this.checkBg();
+  }
+
+  newTarget(){
+
   }
 
 

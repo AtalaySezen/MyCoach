@@ -10,7 +10,7 @@
                 [class]="bgColor">
                 <div class="absolute right-24">
                     <button mat-raised-button (click)="openEdit(template)">Profili Düzenle</button>
-                    <!--Edit Profile Dialog-->
+                    <!--Edit Profile Dialog Start-->
                     <ng-template #template>
                         <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
                             id="panel">
@@ -42,21 +42,22 @@
                                 </div>
                             </div>
                         </div>
+                        <!---Renk butonları-->
                         <div class="px-5">
                             <h1 class="text-xl mb-3 font-semibold text-color">Arka Plan Rengini Değiştir</h1>
-                            <button class="mx-2" mat-button color="primary" value="bg-red-300" (click)="changeBg('bg-slate-400')">Klasik</button>
-                            <button class="mx-2" mat-button color="accent" value="bg-red-300" (click)="changeBg('bg-black')">Siyah</button>
-                            <button class="mx-2" mat-button color="warn" value="bg-red-300" (click)="changeBg('bg-red-300')">Kırmızı</button>
-                            <button class="mx-2" mat-button color="primary" value="bg-red-300" (click)="changeBg('bg-blue-400')">Mavi</button>
-                            <button class="mx-2" mat-button color="basic" value="bg-red-300" (click)="changeBg('bg-gray-500')">Gri</button>
-                            <button class="mx-2" mat-button color="accent" value="bg-red-300" (click)="changeBg('bg-orange-400')">Turuncu</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-slate-400" (click)="changeBg('bg-slate-400')">Klasik</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-black" (click)="changeBg('bg-black')">Siyah</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-red-300" (click)="changeBg('bg-red-300')">Kırmızı</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-blue-400" (click)="changeBg('bg-blue-400')">Mavi</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-gray-500" (click)="changeBg('bg-gray-500')">Gri</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-orange-400" (click)="changeBg('bg-orange-400')">Turuncu</button>
                         </div>
                         <div class="flex justify-center items-center mt-3 pb-5">
                             <button mat-raised-button color="primary" class="mx-5" (click)="saveBg()">Kaydet</button>
                             <button mat-raised-button color="warn" (click)="closeEdit()">Vazgeç</button>
                         </div>
                     </ng-template>
-                    <!--Edit Profile Dialog Orgin-->
+                    <!--Edit Profile Dialog Orgin End-->
                 </div>
                 <div class="flex flex-wrap -mx-3">
                     <div class="flex-none w-auto max-w-full px-3">
@@ -155,6 +156,7 @@
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
                                 <div
                                     class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
@@ -164,6 +166,7 @@
                                             class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85 text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Tüm
                                             Programları Görüntüle</a>
                                     </div>
+                                
                                     <mat-tab-group>
                                         <mat-tab label="Programlarım">
                                             <div class="flex-auto p-4">
@@ -187,7 +190,43 @@
                                                 </ul>
                                             </div>
                                         </mat-tab>
-                                        <mat-tab label="Mesajlarım"> Çok Yakında</mat-tab>
+                                       
+                                        <!--Mesajlarım Tab-->
+                                        <mat-tab label="Mesajlarım"> Çok Yakında
+                                            <ul class="flex flex-col pl-0 mb-0 rounded-lg">
+                                                <li
+                                                    class="relative flex items-center px-0 py-2 mb-2 bg-white border-0 rounded-t-lg text-inherit">
+                                                    <div
+                                                        class="inline-flex items-center justify-center w-12 h-12 mr-4 text-white transition-all duration-200 text-size-base ease-soft-in-out rounded-xl">
+                                                        <img [src]="image" alt="kal"
+                                                            class="w-full shadow-soft-2xl rounded-xl">
+                                                    </div>
+                                                    <div class="flex flex-col items-start justify-center">
+                                                        <h6 class="mb-0 leading-normal text-size-sm">Miraç Doğan
+                                                        </h6>
+                                                        <p class="mb-0 leading-tight text-size-xs">Naber?
+                                                        </p>
+                                                    </div>
+                                                    <a class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase
+                                                     align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer
+                                                      leading-pro text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85
+                                                       text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Mesajı Görüntüle</a>
+                                                </li>
+                                            </ul>
+                                            
+                                        </mat-tab>
+                                        <!--Mesajlarım Tab-->
+
+                                        <mat-tab label="Hedeflerim"> 
+                                            <div class="flex flex-row items-center justify-start pt-3" (click)="newTarget()">
+                                                <mat-label>Yeni Hedef Ekle</mat-label>
+                                                <mat-icon>add</mat-icon>
+                                            </div>
+                                            <mat-label>İşte Tüm Hedeflerini Ekleyebileceğin Bir alan</mat-label>
+                                            <!---Bu alanda Hedefler Eklenecek-->
+
+                                            </mat-tab>
+
                                     </mat-tab-group>
 
                                 </div>
@@ -276,19 +315,19 @@
                                     class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
                                     <div class="p-6 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                                         <h6 class="mb-3">Uygulama Ayarları</h6>
-                                        <span>Uygulama Ayarlarını Buradan Değiştirebilirsin</span>
-                                        <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light mt-8">
+                                        <!-- <span>Uygulama Ayarlarını Buradan Değiştirebilirsin</span> -->
+                                        <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light mt-16">
                                     </div>
                                     <div class="flex-auto p-4">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                                            <li>
+                                            <!-- <li>
                                                 <h1>Font Ayarları</h1>
                                                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
                                                     <mat-button-toggle value="bigger">Büyük</mat-button-toggle>
                                                     <mat-button-toggle value="mid">Orta</mat-button-toggle>
                                                     <mat-button-toggle value="small">Küçük</mat-button-toggle>
                                                 </mat-button-toggle-group>
-                                            </li>
+                                            </li> -->
                                             <li class="mt-5">
                                                 <h1>Otomatik Çıkış Yap</h1>
                                                 <form [formGroup]="checkActive">
@@ -310,22 +349,29 @@
                     </div>
                 </mat-tab>
                 <mat-tab label="Fotoğraflarım">
-                    <div class="image-upload">
-                        <label for="file-input">
-                            <mat-icon>upload</mat-icon>
-                        </label>
-                        <input id="file-input" type="file" />
+                    <div class="flex justify-center items-center">
+                        <div class="image-upload flex flex-col items-center justify-center cursor-pointer">
+                            <label class="cursor-pointer" for="file-input">
+                                <mat-icon>upload</mat-icon>
+                            </label>
+                            <input id="file-input" type="file" />
+                            <mat-label>Fotoğraf Yükle</mat-label>
+                        </div>
                     </div>
-                    <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3 mt-5">
-                        <div class="w-full rounded hover:shadow-2xl">
+                    <div class="w-full h-full mx-auto flex flex-row flex-wrap  mt-5 overflow-hidden">
+                        <div class="w-96 mx-2 rounded hover:shadow-2xl">
                             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                                 alt="image">
                         </div>
-                        <div class="w-full rounded hover:opacity-50">
+                        <div class="w-96 mx-2 rounded hover:opacity-50">
                             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                                 alt="image">
                         </div>
-                        <div class="w-full rounded hover:shadow-2xl">
+                        <div class="w-96 mx-2 rounded hover:shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                                alt="image">
+                        </div>
+                        <div class="w-96 mx-2 rounded hover:shadow-2xl">
                             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                                 alt="image">
                         </div>
@@ -340,4 +386,3 @@
 
 
 
-   <app-footer></app-footer>

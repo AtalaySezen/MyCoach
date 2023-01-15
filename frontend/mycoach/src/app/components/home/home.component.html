@@ -14,7 +14,7 @@
         <p class="text-xl text-color font-semibold">MyCoach sizleri aradığınız kategorilerde onlarca koç ile buluşturan bir platformdur. Bu platformda a'dan z'ye kadar tüm kategorilerde ihtiyacınız olan koçu bulabilirsiniz.</p>
         <p class="py-3 text-lg font-semibold text-red-500">Sende aramıza katıl! Hep birlikte daha büyük bir topluluk olalım.</p>
     </div>
-    <swiper class="flex flex-row flex-nowrap mb-4 gap-1 cursor-pointer" [config]="swiperConfig">
+    <swiper class="flex flex-row flex-nowrap mb-4 gap-2 cursor-pointer" [config]="swiperConfig">
                 <ng-template swiperSlide class="flex justify-center items-center">
                     <div class="absolute flex flex-col items-center">
                         <h1 class="text-4xl font-semibold text-center text-white">MyCoach</h1>
@@ -89,8 +89,33 @@
 
     <div class="flex flex-row items-center justify-center flex-wrap mt-5 pb-5 mb-5" (click)="test()">
  <!--Card 1-->
- <div class="p-1 cursor-pointer">  
-    <div class="min-w-[17rem] max-w-[17rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
+ <div class="p-2 cursor-pointer">  
+    <div class="min-w-[16rem] max-w-[16rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
+      <img class="w-full max-w-[16rem] max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl text-color mb-2">Andrew Johnson</div>
+        <p class="text-gray-700 text-base three-dots">
+         7 yıldır boks anterenörü olarak çalışmaktayım, daha önce 3 defa Türkiye Şampiyonluğum var.
+        </p>
+        
+        <div class="flex flex-row justify-between pt-5">
+        <mat-chip-listbox aria-label="Dog selection">
+            <mat-chip>
+              <img matChipAvatar src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png" alt="Photo of a Shiba Inu"/>
+              <span>Boks</span>
+            </mat-chip>
+          </mat-chip-listbox>
+          <button mat-raised-button color="warn">Keşfet</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!--Card 1-->
+
+ <!--Card 1-->
+ <div class="p-2 cursor-pointer">  
+    <div class="min-w-[16rem] max-w-[16rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
       <img class="w-full max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
       <div class="px-6 py-4">
         <div class="font-bold text-xl text-color mb-2">Andrew Johnson</div>
@@ -114,8 +139,8 @@
 <!--Card 1-->
 
  <!--Card 1-->
- <div class="p-1 cursor-pointer">  
-    <div class="min-w-[17rem] max-w-[17rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
+ <div class="p-2 cursor-pointer">  
+    <div class="min-w-[16rem] max-w-[16rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
       <img class="w-full max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
       <div class="px-6 py-4">
         <div class="font-bold text-xl text-color mb-2">Andrew Johnson</div>
@@ -139,33 +164,8 @@
 <!--Card 1-->
 
  <!--Card 1-->
- <div class="p-1 cursor-pointer">  
-    <div class="min-w-[17rem] max-w-[17rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
-      <img class="w-full max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl text-color mb-2">Andrew Johnson</div>
-        <p class="text-gray-700 text-base three-dots">
-         7 yıldır boks anterenörü olarak çalışmaktayım, daha önce 3 defa Türkiye Şampiyonluğum var.
-        </p>
-        
-        <div class="flex flex-row justify-between pt-5">
-        <mat-chip-listbox aria-label="Dog selection">
-            <mat-chip>
-              <img matChipAvatar src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png" alt="Photo of a Shiba Inu"/>
-              <span>Boks</span>
-            </mat-chip>
-          </mat-chip-listbox>
-          <button mat-raised-button color="warn">Keşfet</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-<!--Card 1-->
-
- <!--Card 1-->
- <div class="p-1 cursor-pointer">  
-    <div class="min-w-[17rem] max-w-[17rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
+ <div class="p-2 cursor-pointer">  
+    <div class="min-w-[16rem] max-w-[16rem] min-h-[25] max-h-[25rem] rounded overflow-hidden shadow-lg">
       <img class="w-full max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
       <div class="px-6 py-4">
         <div class="font-bold text-xl text-color mb-2">Andrew Johnson</div>
@@ -203,7 +203,6 @@
     <div class="text-center">
         <button *ngIf="!userLogged" routerLink="/register" class="button-home mat-height mx-2 mt-5 w-80 text-xl hover:bg-white hover:text-red-600 duration-700" mat-raised-button color="warn">Kayıt Ol</button>
         <button *ngIf="userLogged" routerLink="/coachs" class="mat-button mat-height mx-2 mt-5 w-80 text-xl" mat-raised-button color="warn">Koçlarımız</button>
-
     </div>
 </section>
 
