@@ -43,6 +43,7 @@ import { VerifyComponent } from './components/verify/verify.component';
 import { Thankyou1Component } from './components/thankyou1/thankyou1.component';
 import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
 import { EditcoachprofileComponent } from './components/coachprofile/editcoachprofile/editcoachprofile.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { EditcoachprofileComponent } from './components/coachprofile/editcoachpr
     MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatChipsModule,
     MatSnackBarModule,
     MatSlideToggleModule,
     MatPaginatorModule,

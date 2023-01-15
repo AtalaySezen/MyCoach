@@ -1,5 +1,6 @@
 <div class="w-full py-10 px-10 flex-col" [formGroup]="Form">
-    <div>
+    <div class="flex flex-col justify-center">
+        <h1 class="text-xl font-semibold text-color mb-5">Profil Bilgilerini Düzenle</h1>
         <mat-form-field appearance="fill">
             <mat-label>Hakkında</mat-label>
             <input formControlName="textUser" matInput>
@@ -23,10 +24,7 @@
             <mat-label>İlgi Alanlarınız</mat-label>
             <input formControlName="userInterests" matInput>
         </mat-form-field>
-
+        <button (click)="saveDialog()" [disabled]="Form?.invalid" mat-raised-button color="warn">Kaydet</button>
     </div>
     <div>
-    <button (click)="saveDialog()" [disabled]="Form?.invalid" mat-raised-button color="primary">save</button>
-    
-
 </div>

@@ -34,6 +34,7 @@ export class ProfileComponent {
   autoActive: String = "Aktif Et";
   checkActive: FormGroup;
   bgColor: string = 'bg-slate-400';
+  loading:boolean = false;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
@@ -162,9 +163,9 @@ console.log(userPhone);
     this.dialog.closeAll();
   }
 
-
-  changeBg() {
-    this.bgColor = 'bg-red-300';
+  changeBg(value:any) {
+    this.bgColor = value;
+    console.log(value)
   }
 
   saveBg() {

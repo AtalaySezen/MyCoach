@@ -20,6 +20,8 @@ get UserInfo() {
 
 Logout(){
     localStorage.removeItem('userLogged');
+    localStorage.removeItem('user');
+    localStorage.removeItem('autoout');
     this.Router.navigate(['login']);
 }
 

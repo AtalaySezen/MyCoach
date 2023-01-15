@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 <div *ngIf="profilePage">
     <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
-        id="panel">
+    id="panel">
+    <div class="w-full flex items-center justify-center">
+        <app-loading *ngIf="loading"></app-loading>
+    </div>
         <div class="w-full px-6 py-6 mx-auto  text-slate-500">
             <div class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur rounded-2xl  bg-clip-border mb-4"
                 [class]="bgColor">
@@ -11,18 +14,10 @@
                     <ng-template #template>
                         <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
                             id="panel">
-                            <div class="w-full px-6 py-6 mx-auto  text-slate-500">
-                                <div class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur rounded-2xl  bg-clip-border mb-4"
+                            <div class="w-full px-6 pt-6 pb-2 mx-auto  text-slate-500">
+                                <div class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur  rounded-2xl  bg-clip-border mb-4"
                                     [class]="bgColor">
                                     <div class="flex flex-wrap -mx-3 py-5 px-5 relative">
-                                        <mat-icon matTooltip="Arka Planı Değiştir" (click)="openEdit(bgTemplate)"
-                                            class="absolute right-12">
-                                            edit
-                                        </mat-icon>
-                                        <ng-template #bgTemplate>
-                                            <button mat-button color="primary" (click)="changeBg()">Mavi</button>
-
-                                        </ng-template>
                                         <div class="flex-none w-auto max-w-full ">
                                             <div
                                                 class="text-size-base ease-soft-in-out h-18.5 w-18.5  inline-flex items-center justify-center rounded-xl relative text-white transition-all duration-200">
@@ -47,7 +42,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center items-center mb-5">
+                        <div class="px-5">
+                            <h1 class="text-xl mb-3 font-semibold text-color">Arka Plan Rengini Değiştir</h1>
+                            <button class="mx-2" mat-button color="primary" value="bg-red-300" (click)="changeBg('bg-slate-400')">Klasik</button>
+                            <button class="mx-2" mat-button color="accent" value="bg-red-300" (click)="changeBg('bg-black')">Siyah</button>
+                            <button class="mx-2" mat-button color="warn" value="bg-red-300" (click)="changeBg('bg-red-300')">Kırmızı</button>
+                            <button class="mx-2" mat-button color="primary" value="bg-red-300" (click)="changeBg('bg-blue-400')">Mavi</button>
+                            <button class="mx-2" mat-button color="basic" value="bg-red-300" (click)="changeBg('bg-gray-500')">Gri</button>
+                            <button class="mx-2" mat-button color="accent" value="bg-red-300" (click)="changeBg('bg-orange-400')">Turuncu</button>
+                        </div>
+                        <div class="flex justify-center items-center mt-3 pb-5">
                             <button mat-raised-button color="primary" class="mx-5" (click)="saveBg()">Kaydet</button>
                             <button mat-raised-button color="warn" (click)="closeEdit()">Vazgeç</button>
                         </div>
