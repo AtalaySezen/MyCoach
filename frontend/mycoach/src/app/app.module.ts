@@ -45,6 +45,7 @@ import { CoachprofileComponent } from './components/coachprofile/coachprofile.co
 import { EditcoachprofileComponent } from './components/coachprofile/editcoachprofile/editcoachprofile.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
     Thankyou1Component,
     CoachprofileComponent,
     EditcoachprofileComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,

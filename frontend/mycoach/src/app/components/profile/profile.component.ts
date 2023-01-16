@@ -6,14 +6,13 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 import { AuthService } from 'src/app/services/auth.service';
 import { profileService } from 'src/app/services/profile.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environments.prod';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
+  
 })
 export class ProfileComponent {
 
@@ -39,6 +38,9 @@ export class ProfileComponent {
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
+  fontStyleControl:FormControl;
+  fontStyle?: string;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditDialogComponent>,
     public http:HttpClient,
@@ -53,6 +55,8 @@ export class ProfileComponent {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
+    this.fontStyleControl = new FormControl('');
+
 
   }
 
@@ -61,6 +65,7 @@ export class ProfileComponent {
     this.getUserInfos();
     this.checkBg();
     this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
+
 
   }
 
@@ -77,6 +82,7 @@ export class ProfileComponent {
             this.password = x.password;
             this.userPhone = x.userPhone;
             this.userInterests = x.userInterests;
+
           }
         })
       })
@@ -195,8 +201,28 @@ console.log(userPhone);
   newTarget(){
 
   }
+  previewPhoto :any;
+  showPhoto(templateRef: any,image:any) {
+    console.log(image.src)
+    this.previewPhoto = image.src
+    console.log(this.previewPhoto)
+    const dialogRef = this.dialog.open(templateRef, {
+      width: '100%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
 
+    });
+  }
 
+  //Dark Mode Choose
+  darkMode(){
+    let choosenTheme = this.fontStyleControl.value;
+    if(choosenTheme == 'dark'){
+      console.log('dark');
+    }else{
+      console.log('white');
+    }
+  }
 
 
 
