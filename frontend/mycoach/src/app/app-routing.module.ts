@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    title: 'MyCoach | Profil'
+  },
+  {
+    path: 'coachprofile',
+    component: CoachprofileComponent,
     title: 'MyCoach | Profil'
   },
   {

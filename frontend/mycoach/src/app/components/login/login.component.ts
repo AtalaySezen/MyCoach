@@ -50,7 +50,8 @@ export class LoginComponent {
           localStorage.setItem('userLogged', "true");
           this.loginForm.reset();
           this.route.navigate(['profile'])
-        } else {
+        } 
+        else {
           this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı','Kapat');
         }
       }, err => {
@@ -58,6 +59,34 @@ export class LoginComponent {
       })
 
   }
+  
+
+  loginCoach() {
+    this.http.get<any>("http://localhost:3000/coachs")
+      .subscribe(res => {
+        const user = res.find((a: any) => {
+          return a.email === this.loginForm.value.email && a.password == this.loginForm.value.password
+        });
+
+        if (user) {
+          console.log(user);
+          let userInfos = user.id + user.username + user.surname + user.email;
+          localStorage.setItem("user", JSON.stringify(user));
+          this.snackService.showNotification(`Hoşgeldin ${user.username}`,'Kapat');
+          localStorage.setItem('userLogged', "true");
+          this.loginForm.reset();
+          this.route.navigate(['profile']);
+        } 
+        else {
+          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı','Kapat');
+        }
+      }, err => {
+        console.log("hata var");
+      })
+
+  }
+
+  
 
 
 

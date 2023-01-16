@@ -89,6 +89,50 @@
       "experienceCoach": "3-6",
       "email": "atalay@example.com",
       "statusUser": 2
+    },
+    {
+      "id": 3,
+      "username": "Atalay",
+      "surname": "Sezenn",
+      "password": "atalay9696",
+      "email": "atalaytest@koc.com",
+      "statusUser": 2,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": "26",
+      "city": "İstanbul",
+      "textUser": "selamlarr",
+      "userPhone": "5346115044",
+      "userInterests": "myCoach"
+    },
+    {
+      "id": 4,
+      "username": "Atalay",
+      "surname": "Sezenn",
+      "password": "atalay9696",
+      "email": "atalaytest@koc.com",
+      "selected": "6+",
+      "statusUser": 2,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": 0,
+      "city": "Hangi Şehirde Yaşıyorsun?",
+      "textUser": "Kendini Tanıtman için bir alan.",
+      "mobil": "05555555555",
+      "userInterests": "myCoach"
+    },
+    {
+      "id": 5,
+      "username": "Atalay",
+      "surname": "Sezenn",
+      "password": "atalay9696",
+      "email": "atalaytest@koc.com",
+      "selected": "6+",
+      "statusUser": 2,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": 0,
+      "city": "Hangi Şehirde Yaşıyorsun?",
+      "textUser": "Kendini Tanıtman için bir alan.",
+      "mobil": "05555555555",
+      "userInterests": "myCoach"
     }
   ]
 }

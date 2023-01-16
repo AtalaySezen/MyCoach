@@ -65,7 +65,8 @@ export class ProfileComponent {
     this.getUserInfos();
     this.checkBg();
     this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
-
+    console.log(this.coachPage);
+    this.coachPage == true;
 
   }
 
@@ -96,6 +97,7 @@ export class ProfileComponent {
     this.email = this.authService.UserInfo.email;
     this.id = this.authService.UserInfo.id;
     this.statusUser = this.authService.UserInfo.statusUser;
+    console.log(this.statusUser);
     if (this.statusUser == 1) {
       this.profilePage = true;
       this.coachPage = false;

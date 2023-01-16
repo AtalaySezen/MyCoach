@@ -29,6 +29,10 @@ LoginUser(){
     return this.http.get<any>("http://localhost:3000/users")
 }
 
+LoginCoach(){
+    return this.http.get<any>("http://localhost:3000/coachs")
+}
+
 RegisterUser(data:any){
     return this.http.post<any>("http://localhost:3000/users",data)
 }

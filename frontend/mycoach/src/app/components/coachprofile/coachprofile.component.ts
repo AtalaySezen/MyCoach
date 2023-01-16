@@ -25,7 +25,7 @@ export class CoachprofileComponent {
   statusUser: number;
   id: number;
   city: string;
-  image: string;
+  image: any;
   userInterests: any;
   userAge: number;
   userPhone: any;
@@ -35,9 +35,12 @@ export class CoachprofileComponent {
   autoActive: String = "Aktif Et";
   checkActive: FormGroup;
   bgColor: string = 'bg-slate-400';
+  loading:boolean = false;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
+  fontStyleControl:FormControl;
+  fontStyle?: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditcoachprofileComponent>,
@@ -53,6 +56,8 @@ export class CoachprofileComponent {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
+    this.fontStyleControl = new FormControl('');
+
 
   }
 
@@ -60,6 +65,8 @@ export class CoachprofileComponent {
     this.getUserData();
     this.getUserInfos();
     this.checkBg();
+    this.checkWarnMessage();
+    this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
   }
 
 //Get User Data From API
@@ -75,6 +82,7 @@ export class CoachprofileComponent {
             this.password = x.password;
             this.userPhone = x.userPhone;
             this.userInterests = x.userInterests;
+
           }
         })
       })
@@ -88,13 +96,7 @@ export class CoachprofileComponent {
     this.email = this.authService.UserInfo.email;
     this.id = this.authService.UserInfo.id;
     this.statusUser = this.authService.UserInfo.statusUser;
-    if (this.statusUser == 1) {
-      this.profilePage = true;
-      this.coachPage = false;
-    } else if (this.statusUser == 2) {
-      this.coachPage = true;
-      this.profilePage = false;
-    };
+ 
   }
 
 
@@ -164,9 +166,9 @@ console.log(userPhone);
     this.dialog.closeAll();
   }
 
-
-  changeBg() {
-    this.bgColor = 'bg-red-300';
+  changeBg(value:any) {
+    this.bgColor = value;
+    console.log(value)
   }
 
   saveBg() {
@@ -188,6 +190,43 @@ console.log(userPhone);
     localStorage.removeItem('bgProfile');
     window.location.reload();
     this.checkBg();
+  }
+
+  newTarget(){
+
+  }
+  previewPhoto :any;
+  showPhoto(templateRef: any,image:any) {
+    console.log(image.src)
+    this.previewPhoto = image.src
+    console.log(this.previewPhoto)
+    const dialogRef = this.dialog.open(templateRef, {
+      width: '100%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
+  //Dark Mode Choose
+  darkMode(){
+    let choosenTheme = this.fontStyleControl.value;
+    if(choosenTheme == 'dark'){
+      console.log('dark');
+    }else{
+      console.log('white');
+    }
+  }
+
+  warnMessage:string ='bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 flex flex-row w-full relative'
+  closeWarn(){
+    localStorage.setItem('warn','hidden');
+    this.warnMessage = 'hidden'
+  }
+  checkWarnMessage(){
+    if(localStorage.getItem('warn') == 'hidden'){
+      this.warnMessage = 'hidden'
+    }
   }
 
 

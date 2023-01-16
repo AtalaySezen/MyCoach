@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<app-coachprofile *ngIf="coachPage"></app-coachprofile>
 <div *ngIf="profilePage">
     <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
     id="panel">
@@ -386,7 +387,6 @@
                 <!--Fotoğraflarım-->
                 <mat-tab label="Videolarım">
                     <!-- component -->
-            <!-- This is an example component -->
                 <div>
                     <div class="image-upload flex flex-col items-center justify-center cursor-pointer">
                         <label class="cursor-pointer" for="file-input">
@@ -446,7 +446,6 @@
         <div>
         </div>
     </div>
-   <app-coachprofile *ngIf="coachPage"></app-coachprofile>
 
 
 

@@ -35,7 +35,7 @@ export class RegistercoachComponent {
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-        licenses:new FormControl('',[Validators.required]),
+        licenses:new FormControl('',[]),
         email: new FormControl('', [Validators.required, Validators.email]),
         selected: new FormControl('', [Validators.required])
       })
@@ -55,6 +55,7 @@ export class RegistercoachComponent {
       let surname = this.registerForm.get('surname')?.value;
       let password = this.registerForm.get('password')?.value;
       let email = this.registerForm.get('email')?.value;
+      let selected = this.registerForm.get('selected')?.value;
       let statusUser = 2
       let profileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
       let age = 0;
@@ -70,6 +71,7 @@ export class RegistercoachComponent {
         surname: surname,
         password: password,
         email: email,
+        selected:selected,
         statusUser: statusUser,
         profileImage: profileImage,
         age: age,
