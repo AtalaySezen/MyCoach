@@ -7,6 +7,7 @@ import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -56,6 +57,11 @@ const routes: Routes = [
     path: 'coachs',
     component: CoachsComponent,
     title: 'MyCoach | Koçlarımız'
+  },
+  { 
+    path: 'messages',
+    component: MessagesComponent,
+    title: 'MyCoach | Mesajlar'
   },
   {
     path:'programs',

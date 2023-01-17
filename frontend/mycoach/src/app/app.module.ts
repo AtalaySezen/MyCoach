@@ -46,6 +46,7 @@ import { EditcoachprofileComponent } from './components/coachprofile/editcoachpr
 import {MatChipsModule} from '@angular/material/chips';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { MessagesComponent } from './components/messages/messages.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { MessagesComponent } from './components/messages/messages.component';
     NgxMaskDirective,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatBadgeModule,
     MatInputModule,
     MatMenuModule,
     HttpClientModule,

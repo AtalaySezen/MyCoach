@@ -10,11 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent {
 
   userLogged: boolean = false;
+  hideNotification:boolean = false;
+  menuMobile:boolean = false;
+  coachLogged:boolean = false;
 
   constructor(private router: Router,private authService:AuthService) { }
 
   ngOnInit() {
     this.checkUserLogged();
+    this.checkCoachLogged();
   }
 
   checkUserLogged() {
@@ -23,8 +27,28 @@ export class NavbarComponent {
     }
   }
 
+  checkCoachLogged(){
+    if(this.authService.UserInfo.statusUser == 2){
+      this.coachLogged = true;
+    }else{
+      this.coachLogged = false;
+    }
+  }
+
   logOut() {
     this.authService.Logout();
+  }
+
+
+  showNotification(){
+    this.hideNotification = !this.hideNotification;
+  }
+
+
+
+  mobileMenu(){
+    let mobileMenu = document.getElementById('mobile-menu-2');
+    mobileMenu.classList.toggle('hidden')
   }
 
 

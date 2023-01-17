@@ -1,23 +1,23 @@
-<header class="header">
+<!-- <header class="header">
     <nav>
         <a routerLink="/" class="logo font-bold text-white">MyCoach</a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-        <ul class="menu md:flex items-start sm:items-center ">
+        <ul class="menu md:flex items-start sm:items-center" *ngIf="!userLogged">
             <li><a routerLink="">Anasayfa</a></li>
             <li><a routerLink="/coachs">Koçlarımız</a></li>
             <li><a routerLink="/blogs">Blog</a></li>
             <li><a routerLink="/about">Hakkımızda</a></li>
             <li><a routerLink="/contact">İletişim</a></li>
             <li>
-                <button class="mat-button mx-2" mat-raised-button  routerLink="/profile"
+                <button class="mat-button mx-2" mat-raised-button   routerLink="/profile"
                     *ngIf="userLogged">Profil</button>
-                <button class="mat-button mx-2" mat-raised-button color="warn" *ngIf="userLogged"
+                <button class="mat-button mx-2" mat-raised-button color="warn" 
                     (click)="logOut()">Çıkış Yap</button>
 
                 <button class="mat-button mx-2" mat-raised-button color="warn" routerLink="/register"
                     *ngIf="!userLogged">Kayıt Ol</button>
-                <button class="mat-button bg-white" routerLink="/login" mat-raised-button *ngIf="!userLogged">Giriş
+                <button class="mat-button bg-white" routerLink="/login" mat-raised-button>Giriş
                     Yap</button>
             </li>
             <button class="" mat-button [matMenuTriggerFor]="menu" color="warn">Dil</button>
@@ -26,5 +26,112 @@
                 <button mat-menu-item>EN</button>
             </mat-menu>
         </ul>
+        <ul class="flex flex-row items-center justify-center " *ngIf="userLogged">
+            <li><mat-icon class="icon-display">home</mat-icon>
+            </li>
+            <li><a routerLink=""><mat-icon>sports</mat-icon></a>
+            </li>
+            <li><a routerLink=""><mat-icon>mail</mat-icon></a>
+            </li>
+            <li><a routerLink=""><mat-icon>notifications</mat-icon></a>
+            </li>
+            <li><a routerLink=""><mat-icon>fitness_center</mat-icon></a>
+            </li>
+            <li><a routerLink="" ><mat-icon matBadge="2" matBadgeColor="warn"  (click)="showNotification()">person</mat-icon></a>
+            <div id="dropdown" *ngIf="hideNotification" class="z-10 absolute rounded bg-gray-500 shadow w-44 dark:bg-gray-700">
+            <ul class="py-1 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+        <li>
+            <a routerLink="/profile" class="block px-4 py-2 text-black">Profil</a>
+            </li>
+            <li>
+            <a href="#" class="block px-4 py-2 text-black">Hedeflerim</a>
+            </li>
+            <li>
+            <a (click)="logOut()" class="block px-4 py-2 text-black">Çıkış Yap</a>
+            </li>
+            </ul>
+            </div>
+        </li>
+            <button class="" mat-button [matMenuTriggerFor]="menu" color="warn">Dil</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>TR</button>
+                <button mat-menu-item>EN</button>
+            </mat-menu>
+        </ul>
     </nav>
-</header>
+</header> -->
+
+<nav class="bg-black border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a href="https://flowbite.com/" class="flex items-center">
+        <!-- <img src="https://w7.pngwing.com/pngs/970/479/png-transparent-dumbbell-fitness-centre-computer-icons-barbell-dumbbell-thumbnail.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> -->
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">MyCoach</span>
+    </a>
+    <div class="flex items-center md:order-2">
+        <button (click)="showNotification()" matBadge="2" matBadgeColor="warn" type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+          <img class="w-8 h-8 rounded-full" src="https://scontent.fteq3-1.fna.fbcdn.net/v/t39.30808-6/271711910_1268152663705768_5090955557290776968_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=-W2Y81W5LlAAX_9MqRm&_nc_ht=scontent.fteq3-1.fna&oh=00_AfBef8PDJp03zt-YI57txYgt8Fcok0bhFApw0kdN2-tdQw&oe=63CB5D89" alt="user photo">
+        </button>
+        <!-- Notification Menüsü Burada -->
+        <div *ngIf="hideNotification" class="z-50 absolute top-12 right-4 my-4 text-base bg-white  divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+          <div class="px-4 py-3">
+            <span class="block text-sm text-gray-900 dark:text-white">Atalay Sezen</span>
+            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">atalaysezen@yahoo.com.tr</span>
+          </div>
+          <ul class="py-1" aria-labelledby="user-menu-button">
+            <li>
+              <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</a>
+            </li>
+            <li>
+              <a routerLink="/messages" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mesajlarım</a>
+            </li>
+            <li *ngIf="coachLogged">
+                <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Öğrencilerim</a>
+            </li>
+            <li *ngIf="coachLogged">
+                <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Kazançlarım</a>
+            </li>
+            <li>
+            <li>
+                <a routerLink="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Yardım Ve Destek</a>
+            </li>
+            <li>
+              <a routerLink="/programs" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Programlarım</a>
+            </li>
+            <li>
+              <a (click)="logOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Çıkış Yap</a>
+            </li>
+          </ul>
+        </div>
+       
+    <!-- Notification Menüsü Burada -->
+
+        <button (click)="mobileMenu()" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <!---Orta menü-->
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 collapse-in " id="mobile-menu-2">
+      <ul class="flex flex-col p-4 mt-4 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:bg-black dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+          <a routerLink="/" class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Anasayfa</a>
+        </li>
+        <li>
+            <a routerLink="/coachs" class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Koçlarımız</a>
+          </li>
+          <li>
+            <a routerLink="/blogs" class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Bloglar</a>
+          </li>
+        <li>
+          <a routerLink='/about' class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Hakkımızda</a>
+        </li>
+   
+        <li>
+          <a routerLink="/contact" class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">İletişim</a>
+        </li>
+      </ul>
+    </div>
+    <!---Orta menü-->
+
+    </div>
+  </nav>
+  
