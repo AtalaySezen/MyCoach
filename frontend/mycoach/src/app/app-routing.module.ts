@@ -5,6 +5,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FaqcenterComponent } from './components/faqcenter/faqcenter.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -47,6 +48,11 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     title: 'MyCoach | Profil'
+  },
+  {
+    path: 'support',
+    component: FaqcenterComponent,
+    title: 'MyCoach | Destek'
   },
   {
     path: 'coachprofile',

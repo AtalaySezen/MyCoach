@@ -63,19 +63,27 @@
 
 <nav class="bg-black border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="https://flowbite.com/" class="flex items-center">
+    <a class="flex items-center">
         <!-- <img src="https://w7.pngwing.com/pngs/970/479/png-transparent-dumbbell-fitness-centre-computer-icons-barbell-dumbbell-thumbnail.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> -->
         <span class="self-center text-xl font-semibold whitespace-nowrap text-white">MyCoach</span>
     </a>
+    
+  
     <div class="flex items-center md:order-2">
-        <button (click)="showNotification()" matBadge="2" matBadgeColor="warn" type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+      <button *ngIf="!userLogged" class="mat-button bg-white" routerLink="/login" mat-raised-button>Giriş
+        Yap</button>   
+        <button class="mat-button mx-2" mat-raised-button color="warn" routerLink="/register"
+        *ngIf="!userLogged">Kayıt Ol</button>
+      <ng-container *ngIf="userLogged">
+        <button (click)="showNotification()" matBadge="3" matBadgeColor="warn" type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <img class="w-8 h-8 rounded-full" src="https://scontent.fteq3-1.fna.fbcdn.net/v/t39.30808-6/271711910_1268152663705768_5090955557290776968_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=-W2Y81W5LlAAX_9MqRm&_nc_ht=scontent.fteq3-1.fna&oh=00_AfBef8PDJp03zt-YI57txYgt8Fcok0bhFApw0kdN2-tdQw&oe=63CB5D89" alt="user photo">
         </button>
+    
         <!-- Notification Menüsü Burada -->
         <div *ngIf="hideNotification" class="z-50 absolute top-12 right-4 my-4 text-base bg-white  divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-white">Atalay Sezen</span>
-            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">atalaysezen@yahoo.com.tr</span>
+            <span class="block text-sm text-gray-900 dark:text-white">{{username+' '+surname}}</span>
+            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{email}}</span>
           </div>
           <ul class="py-1" aria-labelledby="user-menu-button">
             <li>
@@ -92,7 +100,7 @@
             </li>
             <li>
             <li>
-                <a routerLink="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Yardım Ve Destek</a>
+                <a routerLink="/support" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Yardım Ve Destek</a>
             </li>
             <li>
               <a routerLink="/programs" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Programlarım</a>
@@ -102,6 +110,7 @@
             </li>
           </ul>
         </div>
+      </ng-container>
        
     <!-- Notification Menüsü Burada -->
 

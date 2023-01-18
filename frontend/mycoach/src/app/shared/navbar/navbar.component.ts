@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,11 +14,25 @@ export class NavbarComponent {
   menuMobile:boolean = false;
   coachLogged:boolean = false;
 
+  username:string;
+  surname:string;
+  email:string;
+  id:number;
+
   constructor(private router: Router,private authService:AuthService) { }
+
 
   ngOnInit() {
     this.checkUserLogged();
     this.checkCoachLogged();
+    this.getUserInfos();
+  }
+
+  getUserInfos() {
+    this.id = this.authService.UserInfo.id;
+    this.username = this.authService.UserInfo.username;
+    this.surname = this.authService.UserInfo.surname;
+    this.email = this.authService.UserInfo.email;
   }
 
   checkUserLogged() {
@@ -48,7 +62,10 @@ export class NavbarComponent {
 
   mobileMenu(){
     let mobileMenu = document.getElementById('mobile-menu-2');
-    mobileMenu.classList.toggle('hidden')
+    mobileMenu.classList.toggle('hidden');
+    if (!mobileMenu.contains) {
+      mobileMenu.style.display = 'none';
+  }
   }
 
 

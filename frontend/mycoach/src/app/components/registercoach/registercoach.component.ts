@@ -17,6 +17,7 @@ export class RegistercoachComponent {
 
 
   hide = true;
+  hide2 = true;
   loading: boolean = false
   registerForm: FormGroup
   idCount: Array<any>;
@@ -35,6 +36,7 @@ export class RegistercoachComponent {
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        rePassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
         licenses:new FormControl('',[]),
         email: new FormControl('', [Validators.required, Validators.email]),
         selected: new FormControl('', [Validators.required])
@@ -90,6 +92,16 @@ export class RegistercoachComponent {
 
     })
   }
+
+  ifMatchPassword: boolean = false;
+  matchPassword(): boolean {
+    let password: string = this.registerForm.get('password')?.value;
+    let passwordAgain: string = this.registerForm.get('rePassword')?.value;
+    return (password == passwordAgain) ? this.ifMatchPassword = false : this.ifMatchPassword = true;
+  }
+  
+
+
 
 
 }
