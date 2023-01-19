@@ -13,11 +13,11 @@ export class NavbarComponent {
   hideNotification:boolean = false;
   menuMobile:boolean = false;
   coachLogged:boolean = false;
-
   username:string;
   surname:string;
   email:string;
   id:number;
+  userPhoto:any;
 
   constructor(private router: Router,private authService:AuthService) { }
 
@@ -33,6 +33,7 @@ export class NavbarComponent {
     this.username = this.authService.UserInfo.username;
     this.surname = this.authService.UserInfo.surname;
     this.email = this.authService.UserInfo.email;
+    this.userPhoto = this.authService.UserInfo.profileImage;
   }
 
   checkUserLogged() {
@@ -57,7 +58,6 @@ export class NavbarComponent {
   showNotification(){
     this.hideNotification = !this.hideNotification;
   }
-
 
 
   mobileMenu(){

@@ -164,6 +164,11 @@ console.log(userPhone);
 
   closeEdit() {
     this.dialog.closeAll();
+    if(localStorage.getItem('bgProfile')==undefined){
+      this.bgColor = 'bg-slate-400';
+    }else{
+      return
+    }
   }
 
   changeBg(value:any) {

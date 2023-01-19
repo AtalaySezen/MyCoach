@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './authlayout/login/login.component';
+import { PrivacyComponent } from './authlayout/privacy/privacy.component';
+import { RegisterComponent } from './authlayout/register/register.component';
+import { RegistercoachComponent } from './authlayout/registercoach/registercoach.component';
+import { CoachearningsComponent } from './coachcomponents/coachearnings/coachearnings.component';
+import { CoachprofileComponent } from './coachcomponents/coachprofile/coachprofile.component';
+import { StudentsComponent } from './coachcomponents/students/students.component';
+import { TrainingprogramsComponent } from './coachcomponents/trainingprograms/trainingprograms.component';
 import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { CoachprofileComponent } from './components/coachprofile/coachprofile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqcenterComponent } from './components/faqcenter/faqcenter.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
-import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RegisterComponent } from './components/register/register.component';
-import { RegistercoachComponent } from './components/registercoach/registercoach.component';
-import { TrainingprogramsComponent } from './components/trainingprograms/trainingprograms.component';
+import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { VerifyComponent } from './shared/verify/verify.component';
 
 const routes: Routes = [
@@ -89,6 +91,15 @@ const routes: Routes = [
     component:PrivacyComponent,
     title:'MyCoach | Gizlilik Sözleşmesi'
   },
+  {path:'earnings',
+  component:CoachearningsComponent,
+  title:'MyCoach | Kazançlarım'
+  },
+  {
+    path:'students',
+    component:StudentsComponent,
+    title:'MyCoach | Öğrenciler'
+  },
   {
     path:'verify',
     component:VerifyComponent,
@@ -97,7 +108,8 @@ const routes: Routes = [
   {path:'**',
    pathMatch:'full',
    component:PagenotfoundComponent
-  }
+  },
+
 
 
 ];

@@ -5,11 +5,7 @@ import { environment } from 'src/environments/environments.prod';
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
+export class CoachearningsService {
 
-  constructor(private http:HttpClient) { }
-
-
-
-
+  constructor() { }
 }

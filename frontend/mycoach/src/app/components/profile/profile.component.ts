@@ -56,8 +56,7 @@ export class ProfileComponent {
       autoCheck: ['', Validators.requiredTrue],
     });
     this.fontStyleControl = new FormControl('');
-
-
+  
   }
 
   ngOnInit() {
@@ -67,7 +66,6 @@ export class ProfileComponent {
     this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
     console.log(this.coachPage);
     this.coachPage == true;
-
   }
 
 //Get User Data From API
@@ -97,7 +95,6 @@ export class ProfileComponent {
     this.email = this.authService.UserInfo.email;
     this.id = this.authService.UserInfo.id;
     this.statusUser = this.authService.UserInfo.statusUser;
-    console.log(this.statusUser);
     if (this.statusUser == 1) {
       this.profilePage = true;
       this.coachPage = false;
@@ -172,11 +169,15 @@ console.log(userPhone);
 
   closeEdit() {
     this.dialog.closeAll();
-  }
+    if(localStorage.getItem('bgProfile')==undefined){
+      this.bgColor = 'bg-slate-400';
+    }else{
+      return
+    }
+   }
 
   changeBg(value:any) {
     this.bgColor = value;
-    console.log(value)
   }
 
   saveBg() {
@@ -203,6 +204,8 @@ console.log(userPhone);
   newTarget(){
 
   }
+
+
   previewPhoto :any;
   showPhoto(templateRef: any,image:any) {
     console.log(image.src)

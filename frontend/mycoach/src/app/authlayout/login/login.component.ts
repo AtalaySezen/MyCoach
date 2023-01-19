@@ -34,7 +34,8 @@ export class LoginComponent {
 
   ngOnInit() {}
 
-  //Service'den alınacak.
+  
+  //Login User Servisten alınacak!*
   loginUser() {
     this.http.get<any>("http://localhost:3000/users")
       .subscribe(res => {
@@ -57,10 +58,10 @@ export class LoginComponent {
       }, err => {
         console.log("hata var");
       })
-
   }
-  
 
+  
+//Login Coach
   loginCoach() {
     this.http.get<any>("http://localhost:3000/coachs")
       .subscribe(res => {
@@ -83,7 +84,6 @@ export class LoginComponent {
       }, err => {
         console.log("hata var");
       })
-
   }
 
   
