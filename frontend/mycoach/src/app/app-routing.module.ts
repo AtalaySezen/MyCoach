@@ -10,6 +10,7 @@ import { StudentsComponent } from './coachcomponents/students/students.component
 import { TrainingprogramsComponent } from './coachcomponents/trainingprograms/trainingprograms.component';
 import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetail.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqcenterComponent } from './components/faqcenter/faqcenter.component';
@@ -66,6 +67,11 @@ const routes: Routes = [
     component: CoachsComponent,
     title: 'MyCoach | Koçlarımız'
   },
+  {
+    path: 'coachs/:id',
+    component: CoachdetailComponent,
+    title: 'MyCoach | Koçlarımız'
+  },
   { 
     path: 'messages',
     component: MessagesComponent,
@@ -109,6 +115,7 @@ const routes: Routes = [
    pathMatch:'full',
    component:PagenotfoundComponent
   },
+  
 
 
 

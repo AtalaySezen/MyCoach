@@ -52,6 +52,7 @@ import { RegisterComponent } from './authlayout/register/register.component';
 import { LoginComponent } from './authlayout/login/login.component';
 import { ProgramdialogComponent } from './coachcomponents/trainingprograms/programdialog/programdialog.component';
 import { StudentdialogComponent } from './coachcomponents/students/studentdialog/studentdialog.component';
+import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetail.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { StudentdialogComponent } from './coachcomponents/students/studentdialog
     CoachearningsComponent,
     ProgramdialogComponent,
     StudentdialogComponent,
+    CoachdetailComponent,
   ],
   imports: [
     BrowserModule,
