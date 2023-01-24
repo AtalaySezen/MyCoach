@@ -92,19 +92,52 @@
       "surname": "Sezen",
       "password": "atalay9696",
       "email": "atalaysezen@yahoo.com.tr",
-      "selectedExperience": "3-6",
       "statusUser": 2,
       "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-      "age": 0,
-      "licenses": "",
-      "city": "Hangi Şehirde Yaşıyorsun?",
+      "age": "71",
+      "city": "İstanbul",
+      "textUser": "65 yıldır spor yapıyorum, obezleri zayıflatırım.",
+      "userPhone": "5346115044",
       "userInterests": [
         "Basketbol",
         "Boks",
         "CrossFit"
-      ],
-      "textUser": "Kendini Tanıtman için bir alan.",
-      "mobil": "05555555555"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "Miraç Doğan",
+      "surname": "Doğan",
+      "password": "atalay9696",
+      "email": "mirac@gmail.com",
+      "statusUser": 2,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": "102",
+      "city": "Ankara",
+      "textUser": "77 yıldır spor yapıyorum, zayıfları obez yaparım",
+      "userPhone": "5343131231",
+      "userInterests": [
+        "Basketbol",
+        "Futbol",
+        "Pilates"
+      ]
+    },
+    {
+      "id": 3,
+      "username": "Miraç",
+      "surname": "Doğan",
+      "password": "atalay9696",
+      "email": "mirac@gmail.com",
+      "statusUser": 2,
+      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      "age": "102",
+      "city": "Ankara",
+      "textUser": "77 yıldır spor yapıyorum, zayıfları obez yaparım",
+      "userPhone": "5343131231",
+      "userInterests": [
+        "Pilates",
+        "MMA"
+      ]
     }
   ]
 }

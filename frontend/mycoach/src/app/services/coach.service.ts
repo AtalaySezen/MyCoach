@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class CoachService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  GetCoaches(){
-   return this.http.get<any>('http://localhost:3000/coachs')
+  GetCoaches() {
+    return this.http.get<any>('http://localhost:3000/coachs')
   }
 
 

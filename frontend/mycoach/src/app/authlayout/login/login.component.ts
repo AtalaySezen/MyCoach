@@ -19,11 +19,11 @@ export class LoginComponent {
   id: number;
 
   constructor(
-     private http: HttpClient,
-     private route: Router, 
-     private loginApi:AuthService,
-     private snackService:SnackbarService
-     ) {
+    private http: HttpClient,
+    private route: Router,
+    private loginApi: AuthService,
+    private snackService: SnackbarService
+  ) {
     {
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -32,9 +32,9 @@ export class LoginComponent {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  
+
   //Login User Servisten alınacak!*
   loginUser() {
     this.http.get<any>("http://localhost:3000/users")
@@ -47,21 +47,21 @@ export class LoginComponent {
           console.log(user);
           let userInfos = user.id + user.username + user.surname + user.email;
           localStorage.setItem("user", JSON.stringify(user));
-          this.snackService.showNotification(`Hoşgeldin ${user.username}`,'Kapat');
+          this.snackService.showNotification(`Hoşgeldin ${user.username}`, 'Kapat');
           localStorage.setItem('userLogged', "true");
           this.loginForm.reset();
           this.route.navigate(['profile'])
-        } 
+        }
         else {
-          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı','Kapat');
+          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı', 'Kapat');
         }
       }, err => {
         console.log("hata var");
       })
   }
 
-  
-//Login Coach
+
+  //Login Coach
   loginCoach() {
     this.http.get<any>("http://localhost:3000/coachs")
       .subscribe(res => {
@@ -73,20 +73,20 @@ export class LoginComponent {
           console.log(user);
           let userInfos = user.id + user.username + user.surname + user.email;
           localStorage.setItem("user", JSON.stringify(user));
-          this.snackService.showNotification(`Hoşgeldin ${user.username}`,'Kapat');
+          this.snackService.showNotification(`Hoşgeldin ${user.username}`, 'Kapat');
           localStorage.setItem('userLogged', "true");
           this.loginForm.reset();
           this.route.navigate(['profile']);
-        } 
+        }
         else {
-          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı','Kapat');
+          this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı', 'Kapat');
         }
       }, err => {
         console.log("hata var");
       })
   }
 
-  
+
 
 
 

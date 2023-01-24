@@ -4,12 +4,16 @@
         <div class="flex-col">
             <div class="flex-col mx-auto header text-center pb-10 w-3/4">
                 <h1 class="text-3xl font-bold text-color">MyCoach</h1>
-                <h2 class="text-xl mt-2 font-semibold text-color">Antreman, Sağlıklı Beslenme & Daha İyi Bir Yaşam İçin Bize
+                <h2 class="text-xl mt-2 font-semibold text-color">Antreman, Sağlıklı Beslenme & Daha İyi Bir Yaşam İçin
+                    Bize
                     Katılın</h2>
-                    <div class="mt-2 flex flex-col items-center">
-                        <mat-label routerLink="/registercoach" class="cursor-pointer text-lg text-color">Eğitmen misiniz?</mat-label>
-                        <a routerLink="/registercoach" class="font-bold hover cursor-pointer text-lg text-color hover:underline transition-all">Kayıt Olun</a>
-                    </div>
+                <div class="mt-2 flex flex-col items-center">
+                    <mat-label routerLink="/registercoach" class="cursor-pointer text-lg text-color">Eğitmen
+                        misiniz?</mat-label>
+                    <a routerLink="/registercoach"
+                        class="font-bold hover cursor-pointer text-lg text-color hover:underline transition-all">Kayıt
+                        Olun</a>
+                </div>
             </div>
             <form [formGroup]="registerForm" class="flex-col items-center justify-center w-full">
                 <div>
@@ -43,7 +47,8 @@
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>Şifrenizi Girin</mat-label>
                         <div class="flex items-center justify-center relative">
-                            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" (keyup)="matchPassword()">
+                            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"
+                                (keyup)="matchPassword()">
                             <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide = !hide">{{hide ?
                                 'visibility_off'
                                 : 'visibility'}}</mat-icon>
@@ -57,8 +62,10 @@
                     <mat-form-field class="w-full" appearance="fill">
                         <mat-label>Şifrenizi Tekrar Girin</mat-label>
                         <div class="flex items-center justify-center relative">
-                            <input matInput formControlName="rePassword" [type]="hide2 ? 'password' : 'text'" (keyup)="matchPassword()">
-                            <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <input matInput formControlName="rePassword" [type]="hide2 ? 'password' : 'text'"
+                                (keyup)="matchPassword()">
+                            <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide2 = !hide2">{{hide2 ?
+                                'visibility_off' : 'visibility'}}</mat-icon>
                         </div>
                         <mat-error *ngIf="registerForm.hasError('rePassword') || !registerForm.hasError('minLength')">
                             Şifreniz 6 karakterden fazla olmalı
@@ -72,28 +79,36 @@
                 </div>
                 <div>
                     <mat-checkbox formControlName="checkbox" class="example-margin ">
-                        <span (click)="openAgreement(template)" class="underline text-base">Gizlilik Sözleşmesini Okudum</span>
-                        </mat-checkbox>
-                        <ng-template #template>
-                            <div class="flex flex-col items-center justify-center overflow-hidden">
-                                <p class="py-8 px-8">Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi
-                                    IP adresiniz ve kullanıcı aracısı bilgileriniz, sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan yöntemlerle ve bazen de analitik sağlayıcılar, reklam ağları, arama bilgi sağlayıcıları, teknoloji sağlayıcıları gibi üçüncü taraflardan elde edilerek, kaydedilerek, depolanarak ve güncellenerek, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve süresince, meşru menfaat işleme şartına dayanılarak işlenecektir.</p>
-                                <div>
-                                <button class="pb-3 mb-5" mat-dialog-close="true" mat-raised-button color="primary">Okudum, anladım</button>
-                                </div>
+                        <span (click)="openAgreement(template)" class="underline text-base">Gizlilik Sözleşmesini
+                            Okudum</span>
+                    </mat-checkbox>
+                    <ng-template #template>
+                        <div class="flex flex-col items-center justify-center overflow-hidden">
+                            <p class="py-8 px-8">Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi
+                                IP adresiniz ve kullanıcı aracısı bilgileriniz, sadece analiz yapmak amacıyla ve
+                                çerezler (cookies) vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan
+                                yöntemlerle ve bazen de analitik sağlayıcılar, reklam ağları, arama bilgi sağlayıcıları,
+                                teknoloji sağlayıcıları gibi üçüncü taraflardan elde edilerek, kaydedilerek, depolanarak
+                                ve güncellenerek, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve süresince,
+                                meşru menfaat işleme şartına dayanılarak işlenecektir.</p>
+                            <div>
+                                <button class="pb-3 mb-5" mat-dialog-close="true" mat-raised-button
+                                    color="primary">Okudum, anladım</button>
                             </div>
-                        </ng-template>
+                        </div>
+                    </ng-template>
                 </div>
                 <div class="flex items-center flex-col sm:mb-0 mb-5 mt-5">
                     <button class="w-full mat-height text-lg" mat-raised-button color="warn" (click)="saveUser()"
                         [disabled]="registerForm.invalid || ifMatchPassword">Kayıt Ol</button>
                     <mat-label routerLink="/login" class="mt-5 cursor-pointer">Zaten bir hesabınız var mı?</mat-label>
-                    <span routerLink="/login" class="font-bold hover cursor-pointer text-lg hover:underline transition-all">Giriş Yapın</span>
+                    <span routerLink="/login"
+                        class="font-bold hover cursor-pointer text-lg hover:underline transition-all">Giriş Yapın</span>
                 </div>
             </form>
         </div>
     </div>
-<!--background-->
+    <!--background-->
     <div class="w-3/6 sm:block hidden bg-register bg-no-repeat bg-cover bg-center  h-full">
     </div>
 

@@ -1,9 +1,9 @@
 <div>
     <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
-    id="panel">
-    <div class="w-full flex items-center justify-center">
-        <app-loading *ngIf="loading"></app-loading>
-    </div>
+        id="panel">
+        <div class="w-full flex items-center justify-center">
+            <app-loading *ngIf="loading"></app-loading>
+        </div>
         <div class="w-full px-6 py-6 mx-auto  text-slate-500">
             <div class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur rounded-2xl  bg-clip-border mb-4"
                 [class]="bgColor">
@@ -33,7 +33,8 @@
                                         <div class="flex-none text-white w-auto max-w-full px-3 my-auto">
                                             <div class="h-full">
                                                 <h5 class="mb-1 text-lg select-none">{{username +" " + surname}}</h5>
-                                                <p class="mb-0 font-semibold leading-normal text-lg select-none ">MyCoach
+                                                <p class="mb-0 font-semibold leading-normal text-lg select-none ">
+                                                    MyCoach
                                                     Antrenör</p>
                                             </div>
                                         </div>
@@ -44,12 +45,18 @@
                         <!---Renk butonları-->
                         <div class="px-5">
                             <h1 class="text-xl mb-3 font-semibold text-color">Arka Plan Rengini Değiştir</h1>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-slate-400" (click)="changeBg('bg-slate-400')">Klasik</button>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-black" (click)="changeBg('bg-black')">Siyah</button>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-red-300" (click)="changeBg('bg-red-300')">Kırmızı</button>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-blue-400" (click)="changeBg('bg-blue-400')">Mavi</button>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-gray-500" (click)="changeBg('bg-gray-500')">Gri</button>
-                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-orange-400" (click)="changeBg('bg-orange-400')">Turuncu</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-slate-400"
+                                (click)="changeBg('bg-slate-400')">Klasik</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-black"
+                                (click)="changeBg('bg-black')">Siyah</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-red-300"
+                                (click)="changeBg('bg-red-300')">Kırmızı</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-blue-400"
+                                (click)="changeBg('bg-blue-400')">Mavi</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-gray-500"
+                                (click)="changeBg('bg-gray-500')">Gri</button>
+                            <button class="inline-flex items-center mx-2 px-4 py-2 text-white rounded-xl bg-orange-400"
+                                (click)="changeBg('bg-orange-400')">Turuncu</button>
                         </div>
                         <div class="flex justify-center items-center mt-3 pb-5">
                             <button mat-raised-button color="primary" class="mx-5" (click)="saveBg()">Kaydet</button>
@@ -78,7 +85,8 @@
             <div [ngClass]="warnMessage" role="alert">
                 <div class="flex flex-col">
                     <p class="font-bold">Onay Bekliyor</p>
-                    <p>MyCoach'a Hoşgeldiniz! Lütfen bilgilerinizi tamamlayın, onaylayabildiğimiz takdirde 24 saat içinde hesabınız kullanıma açılacaktır.</p>
+                    <p>MyCoach'a Hoşgeldiniz! Lütfen bilgilerinizi tamamlayın, onaylayabildiğimiz takdirde 24 saat
+                        içinde hesabınız kullanıma açılacaktır.</p>
                 </div>
                 <div (click)="closeWarn()" class="flex flex-col items-center right-5 absolute cursor-pointer">
                     <mat-icon>close</mat-icon>
@@ -121,7 +129,7 @@
                                     <div class="flex-auto p-4">
                                         <div class="flex items-center">
                                             <p class="leading-normal text-size-sm">{{textUser}}</p>
-                                               
+
                                         </div>
                                         <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
@@ -157,10 +165,11 @@
                                             </li>
                                             <li
                                                 class="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
-                                                <strong class="leading-normal text-size-sm text-slate-700">Uzmanlıklar :</strong> <span>{{userInterests}}</span>
+                                                <strong class="leading-normal text-size-sm text-slate-700">Uzmanlıklar
+                                                    :</strong> <span>{{userInterests}}</span>
                                             </li>
-                                            
-                                   
+
+
                                         </ul>
                                     </div>
                                 </div>
@@ -174,7 +183,8 @@
                                             class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase align-middle transition-all 
                                             bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro
                                             text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85 
-                                          text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Tüm Öğrencileri Görüntüle</a>
+                                          text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Tüm Öğrencileri
+                                            Görüntüle</a>
                                     </div>
                                     <mat-tab-group>
                                         <mat-tab label="Öğrencilerim">
@@ -199,9 +209,9 @@
                                                 </ul>
                                             </div>
                                         </mat-tab>
-                                       
+
                                         <!--Mesajlarım Tab-->
-                                        <mat-tab label="Mesajlarım"> 
+                                        <mat-tab label="Mesajlarım">
                                             <ul class="flex flex-col pl-0 mb-0 rounded-lg">
                                                 <li
                                                     class="relative flex items-center px-0 py-2 mb-2 bg-white border-0 rounded-t-lg text-inherit">
@@ -216,10 +226,12 @@
                                                         <p class="mb-0 leading-tight text-size-xs">Naber?
                                                         </p>
                                                     </div>
-                                                    <a class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase
+                                                    <a
+                                                        class="inline-block py-3 pl-0 pr-4 mb-0 ml-auto font-bold text-center uppercase
                                                      align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer
                                                       leading-pro text-size-xs ease-soft-in hover:scale-102 hover:active:scale-102 active:opacity-85
-                                                       text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Mesajı Görüntüle</a>
+                                                       text-fuchsia-500 hover:text-fuchsia-800 hover:shadow-none active:scale-100">Mesajı
+                                                        Görüntüle</a>
                                                 </li>
                                             </ul>
                                         </mat-tab>
@@ -270,10 +282,11 @@
                                     </div>
                                     <div class="flex-auto p-2" *ngIf="!hideMyData">
                                         <div class="pt-2">
-                                            <button mat-raised-button matTooltip="Profil Ayarlarını Düzenle" (click)="editProfile(id,username,surname,password,email,statusUser,image,userAge,city,textUser,userPhone,userInterests)">Düzenle</button>
+                                            <button mat-raised-button matTooltip="Profil Ayarlarını Düzenle"
+                                                (click)="editProfile(id,username,surname,password,email,statusUser,image,userAge,city,textUser,userPhone,userInterests)">Düzenle</button>
                                         </div>
                                         <hr class="h-px my-6 bg-transparent bg-gradient-horizontal-light">
-                                    
+
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
 
                                             <li
@@ -300,8 +313,8 @@
                                                 class="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
                                                 <strong class="leading-normal text-size-sm text-slate-700">İlgi
                                                     Alanları:</strong>
-                                                    <p>{{userInterests}}</p>
-                                               
+                                                <p>{{userInterests}}</p>
+
                                             </li>
                                         </ul>
                                     </div>
@@ -316,13 +329,15 @@
                                     </div>
                                     <div class="flex-auto p-4">
                                         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                                             <li>
+                                            <li>
                                                 <h1>Tema</h1>
-                                                <mat-button-toggle-group (change)="darkMode()" [formControl]="fontStyleControl" name="fontStyle" aria-label="Font Style">
+                                                <mat-button-toggle-group (change)="darkMode()"
+                                                    [formControl]="fontStyleControl" name="fontStyle"
+                                                    aria-label="Font Style">
                                                     <mat-button-toggle value="white">Aydınlık</mat-button-toggle>
                                                     <mat-button-toggle value="dark">Karanlık</mat-button-toggle>
                                                 </mat-button-toggle-group>
-                                            </li> 
+                                            </li>
                                             <li class="mt-5">
                                                 <h1>Otomatik Çıkış Yap</h1>
                                                 <form [formGroup]="checkActive">
@@ -334,7 +349,8 @@
                                             </li>
                                             <li class="mt-5">
                                                 <h1>Tüm Ayarları Sıfırla</h1>
-                                                    <button mat-raised-button color="warn" (click)="resetSettings()">Sıfırla</button>
+                                                <button mat-raised-button color="warn"
+                                                    (click)="resetSettings()">Sıfırla</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -356,26 +372,34 @@
                         </div>
                     </div>
                     <div class="w-full h-full mx-auto flex flex-row flex-wrap  mt-5 overflow-hidden">
-                        <ng-template  #preview>
+                        <ng-template #preview>
                             <div class="flex flex-col justify-center items-center">
                                 <h1>{{username+''+surname}} Fotoğrafları</h1>
-                                <img class="w-1/2" [src]="previewPhoto"  alt="">
+                                <img class="w-1/2" [src]="previewPhoto" alt="">
                             </div>
                         </ng-template>
-                        <div class="w-96 mx-2 rounded hover:shadow-2xl"  >
-                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]" (click)="showPhoto(preview,$event.target)" src="https://t4.ftcdn.net/jpg/02/11/41/89/240_F_211418972_I4iGCanc9kOK5Bdaf6ZOPDhlEHBdApYJ.jpg"
+                        <div class="w-96 mx-2 rounded hover:shadow-2xl">
+                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]"
+                                (click)="showPhoto(preview,$event.target)"
+                                src="https://t4.ftcdn.net/jpg/02/11/41/89/240_F_211418972_I4iGCanc9kOK5Bdaf6ZOPDhlEHBdApYJ.jpg"
                                 alt="image">
                         </div>
                         <div class="w-96 mx-2 rounded hover:opacity-50">
-                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]" (click)="showPhoto(preview,$event.target)" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]"
+                                (click)="showPhoto(preview,$event.target)"
+                                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
                                 alt="image">
                         </div>
                         <div class="w-96 mx-2 rounded hover:shadow-2xl">
-                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]" (click)="showPhoto(preview,$event.target)" src="https://media.istockphoto.com/id/1025855432/photo/daylight-portrait-of-young-handsome-caucasian-man-isolated-on-grey-background-dressed-in.jpg?s=612x612&w=0&k=20&c=zvQW-kWUHtgY360LhcTi42yXqbtAzXEPU-jlSV3xAL8="
+                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]"
+                                (click)="showPhoto(preview,$event.target)"
+                                src="https://media.istockphoto.com/id/1025855432/photo/daylight-portrait-of-young-handsome-caucasian-man-isolated-on-grey-background-dressed-in.jpg?s=612x612&w=0&k=20&c=zvQW-kWUHtgY360LhcTi42yXqbtAzXEPU-jlSV3xAL8="
                                 alt="image">
                         </div>
                         <div class="w-96 mx-2 rounded hover:shadow-2xl">
-                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]" (click)="showPhoto(preview,$event.target)" src="https://media.istockphoto.com/id/1025855432/photo/daylight-portrait-of-young-handsome-caucasian-man-isolated-on-grey-background-dressed-in.jpg?s=612x612&w=0&k=20&c=zvQW-kWUHtgY360LhcTi42yXqbtAzXEPU-jlSV3xAL8="
+                            <img class="max-w-[19rem] max-h-[19rem] min-h-[19rem] min-w-[19rem]"
+                                (click)="showPhoto(preview,$event.target)"
+                                src="https://media.istockphoto.com/id/1025855432/photo/daylight-portrait-of-young-handsome-caucasian-man-isolated-on-grey-background-dressed-in.jpg?s=612x612&w=0&k=20&c=zvQW-kWUHtgY360LhcTi42yXqbtAzXEPU-jlSV3xAL8="
                                 alt="image">
                         </div>
                     </div>
@@ -383,57 +407,70 @@
                 <!--Fotoğraflarım-->
                 <mat-tab label="Videolarım">
                     <!-- component -->
-                <div>
-                    <div class="image-upload flex flex-col items-center justify-center cursor-pointer">
-                        <label class="cursor-pointer" for="file-input">
-                            <mat-icon>upload</mat-icon>
-                        </label>
-                        <input id="file-input" type="file" />
-                        <mat-label>Video Yükle</mat-label>
+                    <div>
+                        <div class="image-upload flex flex-col items-center justify-center cursor-pointer">
+                            <label class="cursor-pointer" for="file-input">
+                                <mat-icon>upload</mat-icon>
+                            </label>
+                            <input id="file-input" type="file" />
+                            <mat-label>Video Yükle</mat-label>
+                        </div>
+                        <div class='flex max-w-sm w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
+                            <div class="flex flex-col m-5 ">
+                                <div class="relative">
+                                    <video class="w-screen ">
+                                        <source class="w-30 h-30" src='https://www.w3schools.com/html/mov_bbb.mp4'
+                                            type='video/mp4'>
+                                    </video>
+                                    <div class="absolute bottom-0 w-full bg-gradient-to-r from-black">
+                                        <span class="text-white text-xs capitalize px-2">
+                                            {{username}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="relative h-1 bg-gray-200">
+                                            <div class="absolute h-full w-1/2 bg-red-400 flex items-center justify-end">
+                                                <div class="rounded-full w-3 h-3 bg-white shadow"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between text-xs font-medium text-gray-500 py-1">
+                                        <div>
+                                            1:50
+                                        </div>
+                                        <div class="flex space-x-3 pt-5">
+                                            <button class="focus:outline-none">
+                                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                                                    <line x1="5" y1="19" x2="5" y2="5"></line>
+                                                </svg>
+                                            </button>
+                                            <button
+                                                class="rounded-full w-8 h-8 flex items-center justify-center pl-0.5 ring-2 to-red-400 focus:outline-none">
+                                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                                </svg>
+                                            </button>
+                                            <button class="focus:outline-none ">
+                                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                                                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            3:00
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-        <div class='flex max-w-sm w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
-        <div class="flex flex-col m-5 ">
-            <div class="relative">
-        <video class="w-screen ">
-			<source class="w-30 h-30" src='https://www.w3schools.com/html/mov_bbb.mp4' type='video/mp4'>
-        </video>
-         <div class="absolute bottom-0 w-full bg-gradient-to-r from-black">
-            <span class="text-white text-xs capitalize px-2">
-                {{username}}
-            </span>
-        </div>
-            </div>
-        <div>
-            <div>
-        <div class="relative h-1 bg-gray-200">
-        <div class="absolute h-full w-1/2 bg-red-400 flex items-center justify-end">
-          <div class="rounded-full w-3 h-3 bg-white shadow"></div>
-        </div>
-        </div>
-        </div>
-    <div class="flex justify-between text-xs font-medium text-gray-500 py-1">
-      <div>
-        1:50
-      </div>
-      <div class="flex space-x-3 pt-5">
-        <button class="focus:outline-none">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg>
-        </button>
-        <button class="rounded-full w-8 h-8 flex items-center justify-center pl-0.5 ring-2 to-red-400 focus:outline-none">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        </button>
-        <button class="focus:outline-none ">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
-        </button>
-      </div>
-      <div>
-        3:00
-      </div>
-    </div>
-        </div>
-        </div>
-    </div>
-</div>
 
                 </mat-tab>
                 <!---Videolarım-->
@@ -442,6 +479,3 @@
         <div>
         </div>
     </div>
-
-
-

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-coachdetail',
@@ -9,26 +10,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CoachdetailComponent {
 
-  coachData:any;
+  coachData: Array<any>;
 
-  constructor(private activateRoute:ActivatedRoute,private http:HttpClient){}
+  constructor(private activateRoute: ActivatedRoute, private http: HttpClient, private dialog: MatDialog) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getCoachById();
   }
 
   //Get Id Of Coach
-  getCoachById(){
+  getCoachById() {
     const coachId = this.activateRoute.snapshot.paramMap.get('id');
-    this.http.get(`http://localhost:3000/coachs/${coachId}`).subscribe(data=>{
-      this.coachData = data
+    this.http.get(`http://localhost:3000/coachs/${coachId}`).subscribe(data => {
+      let Array = [];
+      Array.push(data);
+      this.coachData = Array
+      console.log(this.coachData)
     })
-    
 
     console.log(coachId);
   }
 
-  
+
+  previewPhoto: any;
+  showPhoto(templateRef: any, image: any) {
+    console.log(image.src)
+    this.previewPhoto = image.src
+    console.log(this.previewPhoto)
+    const dialogRef = this.dialog.open(templateRef, {
+      width: '100%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
 
 
 

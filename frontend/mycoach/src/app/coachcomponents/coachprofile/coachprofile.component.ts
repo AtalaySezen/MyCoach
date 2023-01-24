@@ -35,24 +35,23 @@ export class CoachprofileComponent {
   autoActive: String = "Aktif Et";
   checkActive: FormGroup;
   bgColor: string = 'bg-slate-400';
-  loading:boolean = false;
+  loading: boolean = false;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(2000);
 
-  fontStyleControl:FormControl;
+  fontStyleControl: FormControl;
   fontStyle?: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<EditcoachprofileComponent>,
-    public http:HttpClient,
-    public dialog: MatDialog, 
-    public Router: Router, 
+    public http: HttpClient,
+    public dialog: MatDialog,
+    public Router: Router,
     private _formBuilder: FormBuilder,
-    private authService:AuthService,
-    private profileService:profileService,
-    private snackBar:SnackbarService
-    ) 
-    {
+    private authService: AuthService,
+    private profileService: profileService,
+    private snackBar: SnackbarService
+  ) {
     this.checkActive = this._formBuilder.group({
       autoCheck: ['', Validators.requiredTrue],
     });
@@ -69,12 +68,12 @@ export class CoachprofileComponent {
     this.image = 'https://avatars.githubusercontent.com/u/88587309?v=4'
   }
 
-//Get User Data From API
-  async getUserData(){
-    await this.http.get('http://localhost:3000/coachs').subscribe(data=>{
-      Object.entries(data).forEach(a=>{
-        a.map(x=>{
-          if(this.id == x.id){
+  //Get User Data From API
+  async getUserData() {
+    await this.http.get('http://localhost:3000/coachs').subscribe(data => {
+      Object.entries(data).forEach(a => {
+        a.map(x => {
+          if (this.id == x.id) {
             this.city = x.city;
             this.textUser = x.textUser;
             this.image = x.profileImage;
@@ -89,44 +88,44 @@ export class CoachprofileComponent {
     })
   }
 
-    //Local Storage
+  //Local Storage
   getUserInfos() {
     this.username = this.authService.UserInfo.username;
     this.surname = this.authService.UserInfo.surname;
     this.email = this.authService.UserInfo.email;
     this.id = this.authService.UserInfo.id;
     this.statusUser = this.authService.UserInfo.statusUser;
- 
+
   }
 
 
-//Edit Dialog
-editProfile(id:number,username:string,surname:string,password:any,email:any,statusUser:number,profileImage:string,age:number,city:string,textUser:string,userPhone:any,userInterests:any) {
-console.log(userPhone);
+  //Edit Dialog
+  editProfile(id: number, username: string, surname: string, password: any, email: any, statusUser: number, profileImage: string, age: number, city: string, textUser: string, userPhone: any, userInterests: any) {
+    console.log(userPhone);
     const dialogRef = this.dialog.open(EditcoachprofileComponent, {
       width: '100%',
       height: 'auto',
       data: {
         title: 'Edit Profile',
         id: id,
-        username:username,
-        surname:surname,
-        password:password,
-        email:email,
-        statusUser:statusUser,
-        profileImage:profileImage,
-        age:age,
-        city:city,
-        textUser:textUser,
-        userPhone:userPhone,
-        userInterests:userInterests,
+        username: username,
+        surname: surname,
+        password: password,
+        email: email,
+        statusUser: statusUser,
+        profileImage: profileImage,
+        age: age,
+        city: city,
+        textUser: textUser,
+        userPhone: userPhone,
+        userInterests: userInterests,
       },
     });
     dialogRef.afterClosed().subscribe(data => {
       this.getUserData();
     })
   }
- 
+
   //Auto Logout
   activeAutoLogout() {
     localStorage.setItem('autoout', 'true');
@@ -164,14 +163,14 @@ console.log(userPhone);
 
   closeEdit() {
     this.dialog.closeAll();
-    if(localStorage.getItem('bgProfile')==undefined){
+    if (localStorage.getItem('bgProfile') == undefined) {
       this.bgColor = 'bg-slate-400';
-    }else{
+    } else {
       return
     }
   }
 
-  changeBg(value:any) {
+  changeBg(value: any) {
     this.bgColor = value;
     console.log(value)
   }
@@ -186,22 +185,22 @@ console.log(userPhone);
     let bgColor = localStorage.getItem('bgProfile');
     if (bgColor != undefined) {
       this.bgColor = bgColor;
-    }else{
+    } else {
       this.bgColor = this.bgColor;
     }
   }
 
-  resetSettings(){
+  resetSettings() {
     localStorage.removeItem('bgProfile');
     window.location.reload();
     this.checkBg();
   }
 
-  newTarget(){
+  newTarget() {
 
   }
-  previewPhoto :any;
-  showPhoto(templateRef: any,image:any) {
+  previewPhoto: any;
+  showPhoto(templateRef: any, image: any) {
     console.log(image.src)
     this.previewPhoto = image.src
     console.log(this.previewPhoto)
@@ -214,22 +213,22 @@ console.log(userPhone);
   }
 
   //Dark Mode Choose
-  darkMode(){
+  darkMode() {
     let choosenTheme = this.fontStyleControl.value;
-    if(choosenTheme == 'dark'){
+    if (choosenTheme == 'dark') {
       console.log('dark');
-    }else{
+    } else {
       console.log('white');
     }
   }
 
-  warnMessage:string ='bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 flex flex-row w-full relative'
-  closeWarn(){
-    localStorage.setItem('warn','hidden');
+  warnMessage: string = 'bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 flex flex-row w-full relative'
+  closeWarn() {
+    localStorage.setItem('warn', 'hidden');
     this.warnMessage = 'hidden'
   }
-  checkWarnMessage(){
-    if(localStorage.getItem('warn') == 'hidden'){
+  checkWarnMessage() {
+    if (localStorage.getItem('warn') == 'hidden') {
       this.warnMessage = 'hidden'
     }
   }

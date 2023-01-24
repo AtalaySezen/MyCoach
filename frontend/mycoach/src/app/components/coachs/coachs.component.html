@@ -1,79 +1,79 @@
 <app-navbar></app-navbar>
 <div class="w-full h-full items-center justify-center">
-    
+
     <div class="text-center pt-5">
         <h1 class="text-4xl mt-5 text-center font-bold">MyCoach, Koçlarımız</h1>
         <p class="py-3 text-lg font-semibold text-red-500">Her kategoride aradığın koçu bulmanın en kolay yolu.</p>
     </div>
 
-<div class="w-full items-center justify-center">
-    <!---Filter Coach-->
-    <div class="flex items-center justify-center mx-10 py-6">
-        <mat-form-field appearance="fill" >
-            <mat-label>Spor Dalı</mat-label>
-            <mat-select disableRipple (selectionChange)="filterCategories()"  [(ngModel)]="selectedCategory">
-                <mat-option value="0" selected>Seçiniz</mat-option>
-                <mat-option [value]="item"  *ngFor="let item of categoriesArray">{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <div>
+    <div class="w-full items-center justify-center">
+        <!---Filter Coach-->
+        <div class="flex items-center justify-center mx-10 py-6">
             <mat-form-field appearance="fill">
-                <mat-label>Sıralama</mat-label>
-                <mat-select disableRipple>
-                    <mat-option value="1">A'dan Z'ye Sırala</mat-option>
-                    <mat-option value="2">En Yüksek Puanlı Koçlar</mat-option>
+                <mat-label>Spor Dalı</mat-label>
+                <mat-select disableRipple (selectionChange)="filterCategories()" [(ngModel)]="selectedCategory">
+                    <mat-option value="0" selected>Seçiniz</mat-option>
+                    <mat-option [value]="item" *ngFor="let item of categoriesArray">{{item}}</mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
-    </div>
-    <!--filter selects end-->
 
-<!--Coach Cards-->
-    <div class="w-full flex flex-row flex-wrap justify-center items-center">
-        <ng-container *ngFor="let item of coachArray">
-
-        <!--Card 1-->
-        <div class="p-10 cursor-pointer" (click)="loadCoach(item.id)">  
-            <div class="min-w-[27rem] max-w-[27rem] min-h-[31] max-h-[31rem] rounded overflow-hidden shadow-lg">
-              <img class="w-full max-h-[25rem]" src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain">
-              <div class="px-6 py-4">
-                <div class="font-bold text-xl text-color mb-2">{{item.username + ' ' + item.surname|titlecase}}</div>
-                <p class="text-gray-700 text-base">
-                 {{item.textUser}}
-                </p>
-                
-                <div class="flex flex-row justify-between pt-5">
-                <mat-chip-listbox aria-label="Dog selection">
-                    <mat-chip>
-                      <!-- <img matChipAvatar src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png" alt="Photo of a Shiba Inu"/> -->
-                      <span>{{item.userInterests}}</span>
-                    </mat-chip>
-                  </mat-chip-listbox>
-                  <button mat-raised-button color="warn">Daha Fazla Bilgi</button>
-                </div>
-
-              </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Sıralama</mat-label>
+                    <mat-select disableRipple (selectionChange)="sortCoachs()" [(ngModel)]="sortValue">
+                        <mat-option value="1">A'dan Z'ye Sırala</mat-option>
+                        <mat-option value="2">En Yüksek Puanlı Koçlar</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
-          </div>
-        <!--Card 1-->
-    </ng-container>
+        </div>
+        <!--filter selects end-->
+
+        <!--Coach Cards-->
+        <div class="w-full flex flex-row flex-wrap justify-center items-center">
+            <ng-container *ngFor="let item of coachArray">
+                <!--Card 1-->
+                <div class="p-10 cursor-pointer" (click)="loadCoach(item.id)">
+                    <div class="min-w-[27rem] max-w-[27rem] min-h-[31] max-h-[31rem] rounded overflow-hidden shadow-lg">
+                        <img class="w-full max-h-[25rem]"
+                            src="https://images.pexels.com/photos/6740347/pexels-photo-6740347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Mountain">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl text-color mb-2">{{item.username + ' ' +
+                                item.surname|titlecase}}</div>
+                            <p class="text-gray-700 text-base">
+                                {{item.textUser}}
+                            </p>
+
+                            <div class="flex flex-row justify-between pt-5">
+                                <mat-chip-listbox aria-label="Dog selection">
+                                    <mat-chip>
+                                        <img matChipAvatar
+                                            src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png"
+                                            alt="Photo of a Shiba Inu" />
+                                        <span>{{item.userInterests}}</span>
+                                    </mat-chip>
+                                </mat-chip-listbox>
+                                <button mat-raised-button color="warn">Daha Fazla Bilgi</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card 1-->
+            </ng-container>
 
 
-          
+
+
+
+
+        </div>
+
+
 
 
 
     </div>
 
-
-
-
-
-</div>
-
-<app-footer></app-footer>
-
-
-
-
+    <app-footer></app-footer>

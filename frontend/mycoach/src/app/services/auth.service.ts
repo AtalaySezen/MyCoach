@@ -6,43 +6,43 @@ import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 
-export class AuthService{
+export class AuthService {
 
-constructor(public Router:Router,public http:HttpClient){}
-    
-
-get UserInfo() {
-    const username = JSON.parse(localStorage.getItem('user'));
-    return username;
-}
-
-Logout(){
-    localStorage.removeItem('userLogged');
-    localStorage.removeItem('user');
-    localStorage.removeItem('autoout');
-    this.Router.navigate(['login']);
-}
-
-LoginUser(){
-    return this.http.get<any>("http://localhost:3000/users")
-}
-
-LoginCoach(){
-    return this.http.get<any>("http://localhost:3000/coachs")
-}
-
-RegisterUser(data:any){
-    return this.http.post<any>("http://localhost:3000/users",data)
-}
+    constructor(public Router: Router, public http: HttpClient) { }
 
 
-RegisterCoach(data:any){
-    return this.http.post<any>("http://localhost:3000/coachs",data)
-}
-    
-    
+    get UserInfo() {
+        const username = JSON.parse(localStorage.getItem('user'));
+        return username;
+    }
+
+    Logout() {
+        localStorage.removeItem('userLogged');
+        localStorage.removeItem('user');
+        localStorage.removeItem('autoout');
+        this.Router.navigate(['login']);
+    }
+
+    LoginUser() {
+        return this.http.get<any>("http://localhost:3000/users")
+    }
+
+    LoginCoach() {
+        return this.http.get<any>("http://localhost:3000/coachs")
+    }
+
+    RegisterUser(data: any) {
+        return this.http.post<any>("http://localhost:3000/users", data)
+    }
+
+
+    RegisterCoach(data: any) {
+        return this.http.post<any>("http://localhost:3000/coachs", data)
+    }
+
+
 
 
 

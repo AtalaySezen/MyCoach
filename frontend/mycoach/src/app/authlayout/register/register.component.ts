@@ -31,12 +31,12 @@ export class RegisterComponent {
   ];
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     public Router: Router,
-    private dialog:MatDialog,
-    private snackBar:SnackbarService) {
-    
-      {
+    private dialog: MatDialog,
+    private snackBar: SnackbarService) {
+
+    {
       this.registerForm = new FormGroup({
         username: new FormControl('', [Validators.required]),
         surname: new FormControl('', [Validators.required]),
@@ -83,33 +83,33 @@ export class RegisterComponent {
         userInterests: userInterests
       }).subscribe(data => {
         if (data) {
-          this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu','Kapat');
+          this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu', 'Kapat');
           this.Router.navigate(['/verify']);
           console.log("ok")
 
         } else {
-          this.snackBar.showNotification('Bir Hata Var','Kapat');
+          this.snackBar.showNotification('Bir Hata Var', 'Kapat');
           console.log("hata")
         }
-      },err=>console.log(err))
+      }, err => console.log(err))
 
     })
   }
 
-//Open nondisclosure agreement
-openAgreement(template:any){
-  let dialogRef = this.dialog.open(template, {
-    width: '100%'
-  });
-}
+  //Open nondisclosure agreement
+  openAgreement(template: any) {
+    let dialogRef = this.dialog.open(template, {
+      width: '100%'
+    });
+  }
 
-ifMatchPassword: boolean = false;
+  ifMatchPassword: boolean = false;
 
-matchPassword(): boolean {
-  let password: string = this.registerForm.get('password')?.value;
-  let passwordAgain: string = this.registerForm.get('rePassword')?.value;
-  return (password == passwordAgain) ? this.ifMatchPassword = false : this.ifMatchPassword = true;
-}
+  matchPassword(): boolean {
+    let password: string = this.registerForm.get('password')?.value;
+    let passwordAgain: string = this.registerForm.get('rePassword')?.value;
+    return (password == passwordAgain) ? this.ifMatchPassword = false : this.ifMatchPassword = true;
+  }
 
 
 

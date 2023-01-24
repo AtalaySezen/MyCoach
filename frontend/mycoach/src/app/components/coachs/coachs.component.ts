@@ -14,30 +14,59 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./coachs.component.scss']
 })
 export class CoachsComponent {
-  coachArray:any;
-  categoriesArray:any = ['CrossFit','Fitness','Boks','Kick Boks','MMA','Yoga','Pilates','Yaşam Koçu','Tenis','Basketbol','Futbol'].sort();
-  selectedCategory:string;
-  constructor(private apiService:CoachService,private router:Router){}
+  coachArray: any;
+  categoriesArray: any = ['CrossFit', 'Fitness', 'Boks', 'Kick Boks', 'MMA', 'Yoga', 'Pilates', 'Yaşam Koçu', 'Tenis', 'Basketbol', 'Futbol'].sort();
+  selectedCategory: any;
+  sortValue: number;
+  constructor(private apiService: CoachService, private router: Router) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getData();
   }
 
-  filterCategories(){
-    console.log(this.selectedCategory);
-  }
 
-  getData(){
-    this.apiService.GetCoaches().subscribe(data=>{
-      console.log(data);
+  getData() {
+    this.apiService.GetCoaches().subscribe(data => {
       this.coachArray = data;
+      data.map((element: any) => {
+        console.log(element.userInterests)
+      })
     })
   }
 
-  loadCoach(id:number){
-    this.router.navigate(['coachs/'+id])
+  loadCoach(id: number) {
+    this.router.navigate(['coachs/' + id])
   }
 
-  
+
+  filterCategories() {
+    this.apiService.GetCoaches().subscribe(data => {
+      this.coachArray = [];
+      data.map((element: any) => {
+        if (element.userInterests.includes(this.selectedCategory)) {
+          this.coachArray.push(element);
+        } else if (this.selectedCategory == 0) {
+          this.coachArray = data;
+        }
+      })
+    })
+  }
+
+  sortCoachs() {
+    console.log(this.sortValue);
+    if (this.sortValue = 1) {
+      this.coachArray.sort();
+    } else {
+      console.log("puana göre sırala")
+    }
+
+  }
+
+
+
+
+
+
+
 
 }
