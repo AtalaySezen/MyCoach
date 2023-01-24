@@ -15,11 +15,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CoachsComponent {
   coachArray:any;
-
+  categoriesArray:any = ['CrossFit','Fitness','Boks','Kick Boks','MMA','Yoga','Pilates','Yaşam Koçu','Tenis','Basketbol','Futbol'].sort();
+  selectedCategory:string;
   constructor(private apiService:CoachService,private router:Router){}
 
   ngOnInit(){
     this.getData();
+  }
+
+  filterCategories(){
+    console.log(this.selectedCategory);
   }
 
   getData(){

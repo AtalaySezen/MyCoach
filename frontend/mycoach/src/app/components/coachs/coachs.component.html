@@ -9,14 +9,11 @@
 <div class="w-full items-center justify-center">
     <!---Filter Coach-->
     <div class="flex items-center justify-center mx-10 py-6">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" >
             <mat-label>Spor Dalı</mat-label>
-            <mat-select disableRipple>
-                <mat-option value="1">Atletizm</mat-option>
-                <mat-option value="2">Badminton</mat-option>
-                <mat-option value="3">Basketbol</mat-option>
-                <mat-option value="3">Boks</mat-option>
-                <mat-option value="3">E-Spor</mat-option>
+            <mat-select disableRipple (selectionChange)="filterCategories()"  [(ngModel)]="selectedCategory">
+                <mat-option value="0" selected>Seçiniz</mat-option>
+                <mat-option [value]="item"  *ngFor="let item of categoriesArray">{{item}}</mat-option>
             </mat-select>
         </mat-form-field>
 
@@ -49,7 +46,7 @@
                 <div class="flex flex-row justify-between pt-5">
                 <mat-chip-listbox aria-label="Dog selection">
                     <mat-chip>
-                      <img matChipAvatar src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png" alt="Photo of a Shiba Inu"/>
+                      <!-- <img matChipAvatar src="https://e7.pngegg.com/pngimages/997/721/png-clipart-boxing-glove-kickboxing-ultimate-fighting-championship-boxing-sport-hand.png" alt="Photo of a Shiba Inu"/> -->
                       <span>{{item.userInterests}}</span>
                     </mat-chip>
                   </mat-chip-listbox>

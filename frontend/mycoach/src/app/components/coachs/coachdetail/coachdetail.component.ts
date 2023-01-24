@@ -21,7 +21,7 @@ export class CoachdetailComponent {
   getCoachById(){
     const coachId = this.activateRoute.snapshot.paramMap.get('id');
     this.http.get(`http://localhost:3000/coachs/${coachId}`).subscribe(data=>{
-      this.coachData = data;
+      this.coachData = data
     })
     
 

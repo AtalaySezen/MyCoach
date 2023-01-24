@@ -21,8 +21,6 @@ interface Speciality {
 })
 
 export class RegistercoachComponent {
-
-
   hide = true;
   hide2 = true;
   loading: boolean = false
@@ -36,15 +34,10 @@ export class RegistercoachComponent {
     { value: '6+', viewValue: '6+' },
   ];
 
-  speciality  : Speciality [] = [
-    { value: 'Basketbol', viewValue: 'Basketbol' },
-    { value: 'Futbol', viewValue: 'Futbol' },
-    { value: 'Fitness', viewValue: 'Fitness' },
-  ];
 
+  categoriesArray:any = ['CrossFit','Fitness','Boks','Kick Boks','MMA','Yoga','Pilates','Yaşam Koçu','Tenis','Basketbol','Futbol'].sort();
 
   selectedExperience = this.experience[0].value;
-  selectedSpeciality = this.speciality[0].value;
 
   constructor(private http: HttpClient,private snackBar:SnackbarService,private router:Router) {
     {
@@ -56,8 +49,8 @@ export class RegistercoachComponent {
         licenses:new FormControl('',[]),
         profiency:new FormControl('',[]),
         email: new FormControl('', [Validators.required, Validators.email]),
-        selectedSpeciality: new FormControl('', [Validators.required]),
-        selectedExperience: new FormControl('', [Validators.required])
+        selectedExperience: new FormControl('', [Validators.required]),
+        categories:new FormControl('',[Validators.maxLength(3)])
 
       })
     }
@@ -67,8 +60,10 @@ export class RegistercoachComponent {
     this.selectedExperience = (event.target as HTMLSelectElement).value;
   }
 
-  selectSpeciality(event: Event) {
-    this.selectedSpeciality = (event.target as HTMLSelectElement).value;
+  selectSpeciality() {
+    let username = this.registerForm.get('categories')?.value;
+    console.log(username);
+
   }
 
   ngOnInit() { }
@@ -92,14 +87,13 @@ export class RegistercoachComponent {
       let email = this.registerForm.get('email')?.value;
       let selectedExperience = this.registerForm.get('selectedExperience')?.value;
       let licenses = this.registerForm.get('licenses')?.value;
-      let speciality = this.registerForm.get('selectedSpeciality')?.value;
       let statusUser = 2
       let profileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
       let age = 0;
       let city = "Hangi Şehirde Yaşıyorsun?";
       let textUser = "Kendini Tanıtman için bir alan.";
       let mobil = "05555555555";
-      let userInterests = "myCoach";
+      let userInterests = this.registerForm.get('categories')?.value;
       console.log(this.id);
       this.http.post<any>(`http://localhost:3000/coachs`, {
         id: this.id + 1,
@@ -113,10 +107,9 @@ export class RegistercoachComponent {
         age: age,
         licenses:licenses,
         city: city,
+        userInterests:userInterests,
         textUser: textUser,
         mobil: mobil,
-        speciality:speciality,
-        userInterests: userInterests
       }).subscribe(data => {
         if (data) {
           this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu','Kapat');

@@ -47,7 +47,6 @@
                         <mat-label>Şifrenizi Girin</mat-label>
                         <div class="flex items-center justify-center relative">
                             <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" (keyup)="matchPassword()">
-
                             <mat-icon class="absolute -right-0.5 bottom-2" (click)="hide = !hide">{{hide ?
                                 'visibility_off'
                                 : 'visibility'}}</mat-icon>
@@ -76,17 +75,16 @@
                 </div>
 
                 <div>
-                    <mat-form-field  [style.width.vw]=35 appearance="fill">
-                        <mat-label>Kaç Yıllık Tecrübelisiniz?</mat-label>
-                        <select matNativeControl (change)="selectSpeciality($event)" formControlName="selectedSpeciality">
-                            <option value="" selected>Seçiniz</option>
-                            <option *ngFor="let option of speciality"  [value]="option.value"
-                                [selected]="selectedSpeciality === option.value">{{ option.viewValue }}</option>
-                        </select>
-                    </mat-form-field>
-                    <p>You selected: {{selectedSpeciality}}</p>
+                    <mat-form-field [style.width.vw]=35 appearance="fill">
+                        <mat-label>Uzmanlıklarınız</mat-label>
+                        <mat-select  formControlName="categories" (selectionChange)="selectSpeciality()" multiple >
+                          <mat-option  *ngFor="let item of categoriesArray" [value]="item">{{item}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-error *ngIf="registerForm.hasError('categories')">
+                        Bu alan boş bırakılamaz asdadasa
+                    </mat-error>
                 </div>
-
 
                 <div>
                     <mat-form-field [style.width.vw]=35 appearance="fill">

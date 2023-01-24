@@ -16,7 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
@@ -99,6 +99,7 @@ import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetai
     HttpClientModule,
     MatTabsModule,
     MatDialogModule,
+    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatChipsModule,

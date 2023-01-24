@@ -88,25 +88,8 @@
   "coachs": [
     {
       "id": 1,
-      "username": "deneme",
-      "surname": "deneme",
-      "password": "deneme",
-      "email": "deneme@gmail.com",
-      "selectedExperience": "1-3",
-      "statusUser": 2,
-      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-      "age": 0,
-      "licenses": "",
-      "city": "Hangi Şehirde Yaşıyorsun?",
-      "textUser": "Kendini Tanıtman için bir alan.",
-      "mobil": "05555555555",
-      "speciality": "Basketbol",
-      "userInterests": "myCoach"
-    },
-    {
-      "id": 2,
-      "username": "atalay",
-      "surname": "sezen",
+      "username": "Atalay",
+      "surname": "Sezen",
       "password": "atalay9696",
       "email": "atalaysezen@yahoo.com.tr",
       "selectedExperience": "3-6",
@@ -115,27 +98,13 @@
       "age": 0,
       "licenses": "",
       "city": "Hangi Şehirde Yaşıyorsun?",
+      "userInterests": [
+        "Basketbol",
+        "Boks",
+        "CrossFit"
+      ],
       "textUser": "Kendini Tanıtman için bir alan.",
-      "mobil": "05555555555",
-      "speciality": "Fitness",
-      "userInterests": "myCoach"
-    },
-    {
-      "id": 3,
-      "username": "asdadasda",
-      "surname": "asdsadsada",
-      "password": "atatasadasdas",
-      "email": "selam@gmail.com",
-      "selectedExperience": "1-3",
-      "statusUser": 2,
-      "profileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-      "age": 0,
-      "licenses": "",
-      "city": "Hangi Şehirde Yaşıyorsun?",
-      "textUser": "Kendini Tanıtman için bir alan.",
-      "mobil": "05555555555",
-      "speciality": "Futbol",
-      "userInterests": "myCoach"
+      "mobil": "05555555555"
     }
   ]
 }
