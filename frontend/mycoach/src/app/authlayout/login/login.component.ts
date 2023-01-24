@@ -34,7 +34,6 @@ export class LoginComponent {
 
   ngOnInit() { }
 
-
   //Login User Servisten alınacak!*
   loginUser() {
     this.http.get<any>("http://localhost:3000/users")

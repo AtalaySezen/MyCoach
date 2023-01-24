@@ -7,10 +7,10 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
   styleUrls: ['./snackbar.component.scss']
 })
 export class SnackbarComponent {
-  constructor(@Inject(MAT_SNACK_BAR_DATA) public data:any, public snackBarRef:MatSnackBarRef<SnackbarComponent>){
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any, public snackBarRef: MatSnackBarRef<SnackbarComponent>) {
   }
 
-  
+
 
 
 }

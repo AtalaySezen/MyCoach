@@ -1,8 +1,7 @@
 <div class="flex flex-row justify-center text-left items-center">
-<span class="example-pizza-party" matSnackBarLabel>
+  <span class="example-pizza-party" matSnackBarLabel>
     {{data.message}}
   </span>
-    <button mat-stroked-button matSnackBarAction class="text-center" color="warn" (click)="snackBarRef.dismissWithAction()">{{data.buttonText}}</button>
+  <button mat-stroked-button matSnackBarAction class="text-center" color="warn"
+    (click)="snackBarRef.dismissWithAction()">{{data.buttonText}}</button>
 </div>
-
-  

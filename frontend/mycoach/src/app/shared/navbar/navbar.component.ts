@@ -10,16 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent {
 
   userLogged: boolean = false;
-  hideNotification:boolean = false;
-  menuMobile:boolean = false;
-  coachLogged:boolean = false;
-  username:string;
-  surname:string;
-  email:string;
-  id:number;
-  userPhoto:any;
+  hideNotification: boolean = false;
+  menuMobile: boolean = false;
+  coachLogged: boolean = false;
+  username: string;
+  surname: string;
+  email: string;
+  id: number;
+  userPhoto: any;
 
-  constructor(private router: Router,private authService:AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
 
   ngOnInit() {
@@ -42,10 +42,10 @@ export class NavbarComponent {
     }
   }
 
-  checkCoachLogged(){
-    if(this.authService.UserInfo.statusUser == 2){
+  checkCoachLogged() {
+    if (this.authService.UserInfo.statusUser == 2) {
       this.coachLogged = true;
-    }else{
+    } else {
       this.coachLogged = false;
     }
   }
@@ -55,17 +55,17 @@ export class NavbarComponent {
   }
 
 
-  showNotification(){
+  showNotification() {
     this.hideNotification = !this.hideNotification;
   }
 
 
-  mobileMenu(){
+  mobileMenu() {
     let mobileMenu = document.getElementById('mobile-menu-2');
     mobileMenu.classList.toggle('hidden');
     if (!mobileMenu.contains) {
       mobileMenu.style.display = 'none';
-  }
+    }
   }
 
 

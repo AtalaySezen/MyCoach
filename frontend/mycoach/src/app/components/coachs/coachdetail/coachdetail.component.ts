@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class CoachdetailComponent {
 
   coachData: Array<any>;
+  previewPhoto: any;
 
   constructor(private activateRoute: ActivatedRoute, private http: HttpClient, private dialog: MatDialog) { }
 
@@ -27,12 +28,11 @@ export class CoachdetailComponent {
       this.coachData = Array
       console.log(this.coachData)
     })
-
     console.log(coachId);
   }
 
 
-  previewPhoto: any;
+
   showPhoto(templateRef: any, image: any) {
     console.log(image.src)
     this.previewPhoto = image.src
@@ -42,6 +42,7 @@ export class CoachdetailComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
     });
+
   }
 
 

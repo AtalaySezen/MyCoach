@@ -15,28 +15,27 @@ SwiperCore.use([Navigation, Scrollbar, A11y]);
 export class HomeComponent {
 
   userLogged: boolean = false;
-  changeImage:string = 'https://images.pexels.com/photos/2468339/pexels-photo-2468339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+  changeImage: string = 'https://images.pexels.com/photos/2468339/pexels-photo-2468339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
   durationInSeconds = 5;
   constructor(
     private elementRef: ElementRef,
-    private notifyService:SnackbarService)
-    {}
+    private notifyService: SnackbarService) { }
 
-    swiperConfig: any = {
-        slidesPerView: 'auto',
+  swiperConfig: any = {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: true,
+    pagination: { clickable: true },
+    breakpoints: {
+      992: {
+        slidesPerView: 3,
         spaceBetween: 20,
-        navigation: true,
-        pagination: { clickable: true },
-        breakpoints: {
-            992: {
-              slidesPerView:3,
-              spaceBetween: 20,
-              Navigation:true,
-              Navigator:true
-              
-            }
-        }
+        Navigation: true,
+        Navigator: true
+
+      }
     }
+  }
 
   ngOnInit() {
     this.checkUserLogged();
@@ -48,12 +47,12 @@ export class HomeComponent {
     }
   }
 
-  test(){
-    this.notifyService.showNotification('Çok Yakında!','Kapat');
+  test() {
+    this.notifyService.showNotification('Çok Yakında!', 'Kapat');
   }
 
 
-  
+
 
 
 
