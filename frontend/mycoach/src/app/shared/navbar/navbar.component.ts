@@ -24,8 +24,6 @@ export class NavbarComponent {
 
   ngOnInit() {
     this.checkUserLogged();
-    this.checkCoachLogged();
-    this.getUserInfos();
   }
 
   getUserInfos() {
@@ -39,6 +37,8 @@ export class NavbarComponent {
   checkUserLogged() {
     if (localStorage.getItem('userLogged') == "true") {
       this.userLogged = true;
+      this.checkCoachLogged();
+      this.getUserInfos();
     }
   }
 
@@ -53,7 +53,6 @@ export class NavbarComponent {
   logOut() {
     this.authService.Logout();
   }
-
 
   showNotification() {
     this.hideNotification = !this.hideNotification;

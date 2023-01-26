@@ -17,6 +17,7 @@ import { FaqcenterComponent } from './components/faqcenter/faqcenter.component';
 import { HomeComponent } from './components/home/home.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './services/auth.guard';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { VerifyComponent } from './shared/verify/verify.component';
 
@@ -40,7 +41,7 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'MyCoach | İletişim'
+    title: 'MyCoach | İletişim',
   },
   {
     path: 'registercoach',
@@ -50,6 +51,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate:[AuthGuard],
     title: 'MyCoach | Profil'
   },
   {
@@ -60,6 +62,7 @@ const routes: Routes = [
   {
     path: 'coachprofile',
     component: CoachprofileComponent,
+    canActivate:[AuthGuard],
     title: 'MyCoach | Profil'
   },
   {
@@ -72,53 +75,55 @@ const routes: Routes = [
     component: CoachdetailComponent,
     title: 'MyCoach | Koçlarımız'
   },
-  { 
+  {
     path: 'messages',
     component: MessagesComponent,
+    canActivate:[AuthGuard],
     title: 'MyCoach | Mesajlar'
   },
   {
-    path:'programs',
-    component:TrainingprogramsComponent,
-    title:'MyCoach | Programlarım'
+    path: 'programs',
+    component: TrainingprogramsComponent,
+    canActivate:[AuthGuard],
+    title: 'MyCoach | Programlarım'
   },
   {
-    path:'about',
-    component:AboutComponent,
-    title:'MyCoach | Hakkımızda'
+    path: 'about',
+    component: AboutComponent,
+    title: 'MyCoach | Hakkımızda'
   },
   {
-    path:'blogs',
-    component:BlogComponent,
-    title:'MyCoach | Bloglar'
+    path: 'blogs',
+    component: BlogComponent,
+    title: 'MyCoach | Bloglar'
   },
   {
-    path:'privacy',
-    component:PrivacyComponent,
-    title:'MyCoach | Gizlilik Sözleşmesi'
-  },
-  {path:'earnings',
-  component:CoachearningsComponent,
-  title:'MyCoach | Kazançlarım'
+    path: 'privacy',
+    component: PrivacyComponent,
+    title: 'MyCoach | Gizlilik Sözleşmesi'
   },
   {
-    path:'students',
-    component:StudentsComponent,
-    title:'MyCoach | Öğrenciler'
+    path: 'earnings',
+    component: CoachearningsComponent,
+    canActivate:[AuthGuard],
+    title: 'MyCoach | Kazançlarım'
   },
   {
-    path:'verify',
-    component:VerifyComponent,
-    title:'MyCoach | Onayla'
+    path: 'students',
+    component: StudentsComponent,
+    canActivate:[AuthGuard],
+    title: 'MyCoach | Öğrenciler'
   },
-  {path:'**',
-   pathMatch:'full',
-   component:PagenotfoundComponent
+  {
+    path: 'verify',
+    component: VerifyComponent,
+    title: 'MyCoach | Onayla'
   },
-  
-
-
-
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PagenotfoundComponent
+  },
 ];
 
 @NgModule({

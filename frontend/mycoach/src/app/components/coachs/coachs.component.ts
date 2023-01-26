@@ -18,6 +18,9 @@ export class CoachsComponent {
   categoriesArray: any = ['CrossFit', 'Fitness', 'Boks', 'Kick Boks', 'MMA', 'Yoga', 'Pilates', 'Yaşam Koçu', 'Tenis', 'Basketbol', 'Futbol'].sort();
   selectedCategory: any;
   sortValue: number;
+  searchValue: any;
+  loadingTable: boolean = false;
+  filterMessage: boolean = false;
   constructor(private apiService: CoachService, private router: Router) { }
 
   ngOnInit() {
@@ -26,11 +29,10 @@ export class CoachsComponent {
 
 
   getData() {
+    this.loadingTable = true;
     this.apiService.GetCoaches().subscribe(data => {
       this.coachArray = data;
-      data.map((element: any) => {
-        console.log(element.userInterests)
-      })
+      this.loadingTable = false;
     })
   }
 
@@ -42,25 +44,38 @@ export class CoachsComponent {
   filterCategories() {
     this.apiService.GetCoaches().subscribe(data => {
       this.coachArray = [];
+      this.loadingTable = true;
       data.map((element: any) => {
         if (element.userInterests.includes(this.selectedCategory)) {
           this.coachArray.push(element);
+          this.filterMessage = false;
+          this.loadingTable = false;
         } else if (this.selectedCategory == 0) {
           this.coachArray = data;
+          this.filterMessage = false;
+          this.loadingTable = false;
+        } else if (this.coachArray.length < 1) {
+          this.filterMessage = true;
+          this.loadingTable = false;
         }
       })
     })
   }
 
+  searchFilter() {
+    console.log(this.searchValue);
+
+  }
+
   sortCoachs() {
-    console.log(this.sortValue);
-    if (this.sortValue = 1) {
-      this.coachArray.sort();
+    if (this.sortValue == 2) {
+      this.coachArray.reverse();
     } else {
-      console.log("puana göre sırala")
+      console.log("puana göre")
     }
 
   }
+
 
 
 

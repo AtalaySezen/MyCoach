@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
+
 <ng-container *ngFor="let item of coachData">
     <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200"
         id="panel">
-
         <div class="w-full px-6 py-6 mx-auto  text-slate-500">
             <div
                 class="relative flex flex-col flex-auto min-w-0 p-4 overflow-hidden break-words border-0 shadow-blur rounded-2xl  bg-clip-border mb-4 bg-black">
@@ -24,7 +24,8 @@
                                     done
                                 </mat-icon>
                             </div>
-                            <button mat-raised-button color="warn" class="mt-5">Kayıt Ol</button>
+                            <button mat-raised-button color="warn" class="mt-5" (click)="subscribeCoach()">Kayıt
+                                Ol</button>
                         </div>
                     </div>
                 </div>

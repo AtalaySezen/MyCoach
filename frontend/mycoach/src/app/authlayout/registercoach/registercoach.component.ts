@@ -63,7 +63,6 @@ export class RegistercoachComponent {
   selectSpeciality() {
     let username = this.registerForm.get('categories')?.value;
     console.log(username);
-
   }
 
   ngOnInit() { }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { SubscribecoachComponent } from '../subscribecoach/subscribecoach.component';
 
 @Component({
   selector: 'app-coachdetail',
@@ -13,7 +15,7 @@ export class CoachdetailComponent {
   coachData: Array<any>;
   previewPhoto: any;
 
-  constructor(private activateRoute: ActivatedRoute, private http: HttpClient, private dialog: MatDialog) { }
+  constructor(private activateRoute: ActivatedRoute, private http: HttpClient, private dialog: MatDialog, private userService: AuthService) { }
 
   ngOnInit() {
     this.getCoachById();
@@ -25,8 +27,7 @@ export class CoachdetailComponent {
     this.http.get(`http://localhost:3000/coachs/${coachId}`).subscribe(data => {
       let Array = [];
       Array.push(data);
-      this.coachData = Array
-      console.log(this.coachData)
+      this.coachData = Array;
     })
     console.log(coachId);
   }
@@ -35,14 +36,21 @@ export class CoachdetailComponent {
 
   showPhoto(templateRef: any, image: any) {
     console.log(image.src)
-    this.previewPhoto = image.src
-    console.log(this.previewPhoto)
+    this.previewPhoto = image.src;
+    console.log(this.previewPhoto);
     const dialogRef = this.dialog.open(templateRef, {
       width: '100%',
     });
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
 
+
+  subscribeCoach() {
+    this.dialog.open(SubscribecoachComponent, {
+      width: '100%',
+      height: '400px'
+    });
   }
 
 
@@ -50,3 +58,6 @@ export class CoachdetailComponent {
 
 
 }
+
+
+

@@ -81,7 +81,7 @@ export class LoginComponent {
           this.snackService.showNotification('Kullanıcı Adı Veya Şifre Hatalı', 'Kapat');
         }
       }, err => {
-        console.log("hata var");
+        console.log(err, "hata");
       })
   }
 

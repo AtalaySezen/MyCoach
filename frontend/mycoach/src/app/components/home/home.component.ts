@@ -32,7 +32,6 @@ export class HomeComponent {
         spaceBetween: 20,
         Navigation: true,
         Navigator: true
-
       }
     }
   }

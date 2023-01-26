@@ -17,29 +17,29 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CoachsComponent } from './components/coachs/coachs.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EditDialogComponent } from './components/profile/profilecomponents/edit-dialog/edit-dialog.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SwiperModule } from 'swiper/angular';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AboutComponent } from './components/about/about.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { VerifyComponent } from './shared/verify/verify.component';
 import { Thankyou1Component } from './shared/thankyou1/thankyou1.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FaqcenterComponent } from './components/faqcenter/faqcenter.component';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { StudentsComponent } from './coachcomponents/students/students.component';
 import { CoachearningsComponent } from './coachcomponents/coachearnings/coachearnings.component';
 import { EditcoachprofileComponent } from './coachcomponents/coachprofile/editcoachprofile/editcoachprofile.component';
@@ -53,6 +53,9 @@ import { LoginComponent } from './authlayout/login/login.component';
 import { ProgramdialogComponent } from './coachcomponents/trainingprograms/programdialog/programdialog.component';
 import { StudentdialogComponent } from './coachcomponents/students/studentdialog/studentdialog.component';
 import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetail.component';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { SubscribecoachComponent } from './components/coachs/subscribecoach/subscribecoach.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,7 @@ import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetai
     ProgramdialogComponent,
     StudentdialogComponent,
     CoachdetailComponent,
+    SubscribecoachComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +96,7 @@ import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetai
     MatSelectModule,
     NgxMaskDirective,
     MatFormFieldModule,
+    NgScrollbarModule,
     MatCheckboxModule,
     MatInputModule,
     MatBadgeModule,
@@ -101,6 +106,7 @@ import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetai
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    MatStepperModule,
     MatButtonModule,
     MatChipsModule,
     MatSnackBarModule,
@@ -120,7 +126,7 @@ import { CoachdetailComponent } from './components/coachs/coachdetail/coachdetai
     { provide: MatDialogRef, useValue: {} },
     [provideNgxMask()]
 
-],
+  ],
   bootstrap: [AppComponent]
 
 })

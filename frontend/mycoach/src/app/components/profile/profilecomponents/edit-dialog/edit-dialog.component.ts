@@ -70,7 +70,6 @@ export class EditDialogComponent {
         this.snackBar.showNotification('Başarıyla Güncellendi', 'Kapat');
         this.dialogRef.close({ event: 'success' });
       } else {
-        console.log("hata")
         this.snackBar.showNotification('Bir Hata Oluştu', 'Kapat');
       }
     })

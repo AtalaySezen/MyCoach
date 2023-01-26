@@ -23,6 +23,8 @@ export class RegisterComponent {
   idCount: Array<any>;
   id: number;
   checkActive: FormGroup;
+  categoriesArray: any = ['CrossFit', 'Fitness', 'Boks', 'Kick Boks', 'MMA', 'Yoga', 'Pilates', 'Yaşam Koçu', 'Tenis', 'Basketbol', 'Futbol'].sort();
+
 
   ages: Ages[] = [
     { value: '1-3', viewValue: '1-3' },
@@ -43,6 +45,7 @@ export class RegisterComponent {
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         rePassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
         email: new FormControl('', [Validators.required, Validators.email]),
+        categories: new FormControl('', [Validators.required]),
         checkbox: new FormControl(false, [Validators.requiredTrue])
       })
     }
@@ -60,13 +63,13 @@ export class RegisterComponent {
       let surname = this.registerForm.get('surname')?.value;
       let password = this.registerForm.get('password')?.value;
       let email = this.registerForm.get('email')?.value;
+      let userInterests = this.registerForm.get('categories')?.value;
       let statusUser = 1
       let profileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
       let age = 0;
       let city = "Hangi Şehirde Yaşıyorsun?";
       let textUser = "Kendini Tanıtman için bir alan.";
       let mobil = "05555555555";
-      let userInterests = "myCoach";
       console.log(this.id);
       this.http.post<any>(`http://localhost:3000/users`, {
         id: this.id + 1,
@@ -86,10 +89,8 @@ export class RegisterComponent {
           this.snackBar.showNotification('Hesabınız Başarıyla Oluşturuldu', 'Kapat');
           this.Router.navigate(['/verify']);
           console.log("ok")
-
         } else {
-          this.snackBar.showNotification('Bir Hata Var', 'Kapat');
-          console.log("hata")
+          this.snackBar.showNotification('Bir Hata Oluştu', 'Kapat');
         }
       }, err => console.log(err))
 
@@ -111,7 +112,10 @@ export class RegisterComponent {
     return (password == passwordAgain) ? this.ifMatchPassword = false : this.ifMatchPassword = true;
   }
 
-
+  selectSpeciality() {
+    let username = this.registerForm.get('categories')?.value;
+    console.log(username);
+  }
 
 
 
